@@ -1,0 +1,2893 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Direktori Mahasantri — Pondok Hajjah Nuriyah Shabran UMS 2026/2027</title>
+
+  <!-- Google Font: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            navy: {
+              DEFAULT: '#2F3185',
+              50: '#EEF0FA',
+              100: '#DCE0F5',
+              600: '#2F3185',
+              700: '#25276D',
+              800: '#1C1E55',
+            },
+            gold: {
+              DEFAULT: '#FFB800',
+              50: '#FFF9E6',
+              100: '#FFF0BF',
+              500: '#FFB800',
+              600: '#D99B00',
+            },
+            tealbrand: {
+              DEFAULT: '#1CBDB3',
+              50: '#E8F9F7',
+              100: '#C5F1ED',
+              600: '#1CBDB3',
+              700: '#159991',
+            },
+            putri: {
+              DEFAULT: '#EC4899',
+              50: '#FDF2F8',
+              100: '#FCE7F3',
+              600: '#EC4899',
+              700: '#DB2777',
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      background-color: #F4F6FB;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Subtle Material Design 3 scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F1F5F9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94A3B8;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Animations */
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.96) translateY(8px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .modal-animate {
+      animation: modalFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes toastSlideUp {
+      from { opacity: 0; transform: translate(-50%, 16px); }
+      to { opacity: 1; transform: translate(-50%, 0); }
+    }
+    .toast-animate {
+      animation: toastSlideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .drawer-panel {
+      transition: transform 0.28s cubic-bezier(0.2, 0, 0, 1);
+    }
+  </style>
+</head>
+<body class="text-slate-800 antialiased min-h-screen flex flex-col">
+
+  <!-- ===================================================================== -->
+  <!-- TOP APP BAR (MATERIAL DESIGN 3 STYLE)                                 -->
+  <!-- ===================================================================== -->
+  <header class="sticky top-0 z-30 bg-[#2F3185] text-white shadow-md">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+      <!-- Top Row -->
+      <div class="flex items-center justify-between py-3 gap-2 sm:gap-4">
+        <!-- Left: Hamburger Menu + Brand -->
+        <div class="flex items-center gap-2.5 sm:gap-3 min-w-0">
+          <button
+            id="btnOpenDrawer"
+            type="button"
+            class="w-10 h-10 rounded-full hover:bg-white/15 active:bg-white/25 flex items-center justify-center text-white transition cursor-pointer shrink-0"
+            aria-label="Buka menu navigasi"
+          >
+            <i data-lucide="menu" class="w-5 h-5"></i>
+          </button>
+
+          <div class="w-10 h-10 rounded-2xl bg-white/10 border border-white/20 hidden xs:flex sm:flex items-center justify-center shrink-0 shadow-inner">
+            <i data-lucide="graduation-cap" class="w-5 h-5 text-[#FFB800]"></i>
+          </div>
+
+          <div class="min-w-0">
+            <div class="flex items-center gap-2">
+              <h1 class="text-sm sm:text-lg font-extrabold tracking-tight leading-tight truncate">
+                DIREKTORI SHABRAN
+              </h1>
+              <span class="hidden md:inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-[#FFB800] text-[#1C1E55]">
+                2026/2027
+              </span>
+            </div>
+            <p class="text-[11px] sm:text-xs text-indigo-100/90 font-medium truncate">
+              Direktori, Statistik & Prestasi • Pondok Hajjah Nuriyah Shabran • UMS
+            </p>
+          </div>
+        </div>
+
+        <!-- Right: Live Clock WIB & Contextual Export Button -->
+        <div class="flex items-center gap-2 shrink-0">
+          <div class="hidden md:flex items-center gap-2 bg-white/10 border border-white/15 rounded-full px-3.5 py-1.5 text-xs font-medium text-indigo-50">
+            <i data-lucide="clock" class="w-3.5 h-3.5 text-[#1CBDB3] shrink-0"></i>
+            <span id="liveClockWIB" class="tabular-nums whitespace-nowrap">--:--:-- WIB</span>
+          </div>
+
+          <button
+            id="btnHeaderExport"
+            type="button"
+            class="inline-flex items-center gap-1.5 bg-[#FFB800] hover:bg-[#e5a600] active:scale-[0.98] text-[#1C1E55] font-bold text-xs sm:text-sm px-3 sm:px-3.5 py-2 rounded-full shadow-sm transition cursor-pointer whitespace-nowrap"
+            title="Ekspor data aktif ke CSV (UTF-8)"
+          >
+            <i data-lucide="download" class="w-4 h-4 shrink-0"></i>
+            <span class="hidden sm:inline" id="headerExportLabel">Ekspor CSV</span>
+            <span id="headerExportBadge" class="bg-[#1C1E55]/15 text-[#1C1E55] px-1.5 py-0.5 rounded-full text-[11px] font-extrabold tabular-nums">186</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Navigation Tabs (Desktop & Mobile) -->
+      <div class="flex items-center justify-between border-t border-white/10">
+        <nav class="flex items-center gap-1 overflow-x-auto no-scrollbar w-full sm:w-auto" aria-label="Navigasi Cepat">
+          <button
+            type="button"
+            data-nav="dashboard"
+            class="nav-tab relative flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 sm:px-4 py-3 text-xs sm:text-sm font-semibold text-white transition whitespace-nowrap cursor-pointer"
+          >
+            <i data-lucide="bar-chart-3" class="w-4 h-4 text-[#FFB800]"></i>
+            <span>Statistik</span>
+            <span class="nav-indicator absolute bottom-0 left-3 right-3 h-1 rounded-t-full bg-[#FFB800]"></span>
+          </button>
+
+          <button
+            type="button"
+            data-nav="directory"
+            class="nav-tab relative flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 sm:px-4 py-3 text-xs sm:text-sm font-semibold text-indigo-200 hover:text-white transition whitespace-nowrap cursor-pointer"
+          >
+            <i data-lucide="users" class="w-4 h-4"></i>
+            <span>Direktori</span>
+            <span id="tabDirBadge" class="px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-white/15 text-white tabular-nums">186</span>
+            <span class="nav-indicator hidden absolute bottom-0 left-3 right-3 h-1 rounded-t-full bg-[#FFB800]"></span>
+          </button>
+
+          <button
+            type="button"
+            data-nav="prestasi"
+            class="nav-tab relative flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 sm:px-4 py-3 text-xs sm:text-sm font-semibold text-indigo-200 hover:text-white transition whitespace-nowrap cursor-pointer"
+          >
+            <i data-lucide="trophy" class="w-4 h-4"></i>
+            <span>Prestasi UMS</span>
+            <span id="tabPrestasiBadge" class="px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-[#1CBDB3] text-[#0F2A28] tabular-nums">35</span>
+            <span class="nav-indicator hidden absolute bottom-0 left-3 right-3 h-1 rounded-t-full bg-[#FFB800]"></span>
+          </button>
+        </nav>
+
+        <!-- Active Filter Pill (Desktop) -->
+        <div id="headerActiveFilterPill" class="hidden md:flex items-center gap-2 pb-0.5">
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-[#1CBDB3]/20 text-[#C5F1ED] border border-[#1CBDB3]/40">
+            <i data-lucide="filter" class="w-3 h-3"></i>
+            <span id="headerFilterText">Filter aktif</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- SLIDE-OVER NAVIGATION DRAWER (MATERIAL DESIGN 3)                      -->
+  <!-- ===================================================================== -->
+  <div id="drawerOverlay" class="hidden fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-[2px]">
+    <aside
+      id="drawerPanel"
+      class="drawer-panel -translate-x-full fixed top-0 left-0 bottom-0 w-[290px] max-w-[84vw] bg-white shadow-2xl rounded-r-3xl flex flex-col overflow-hidden"
+    >
+      <!-- Drawer Header -->
+      <div class="bg-gradient-to-br from-[#2F3185] to-[#1C1E55] p-5 text-white">
+        <div class="flex items-center justify-between mb-4">
+          <div class="w-11 h-11 rounded-2xl bg-white/15 border border-white/20 flex items-center justify-center">
+            <i data-lucide="graduation-cap" class="w-6 h-6 text-[#FFB800]"></i>
+          </div>
+          <button
+            id="btnCloseDrawer"
+            type="button"
+            class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition cursor-pointer"
+            aria-label="Tutup menu"
+          >
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+        <h2 class="text-base font-extrabold leading-snug">Pondok Hajjah Nuriyah Shabran</h2>
+        <p class="text-xs text-indigo-200 mt-0.5">Universitas Muhammadiyah Surakarta</p>
+        <div class="mt-3 flex items-center gap-2 text-[11px] text-indigo-100 bg-white/10 rounded-xl px-3 py-1.5 w-fit">
+          <i data-lucide="clock" class="w-3.5 h-3.5 text-[#1CBDB3]"></i>
+          <span id="drawerClockWIB" class="tabular-nums">--:-- WIB</span>
+        </div>
+      </div>
+
+      <!-- Drawer Nav Items -->
+      <div class="p-3 flex-1 overflow-y-auto space-y-1">
+        <p class="px-3 pt-2 pb-1 text-[11px] font-bold uppercase tracking-wider text-slate-400">Menu Utama</p>
+
+        <button
+          type="button"
+          data-nav="dashboard"
+          class="drawer-item w-full flex items-center justify-between px-4 py-3 rounded-2xl text-sm font-semibold transition cursor-pointer bg-[#EEF0FA] text-[#2F3185]"
+        >
+          <span class="flex items-center gap-3">
+            <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+            <span>Dashboard Statistik</span>
+          </span>
+        </button>
+
+        <button
+          type="button"
+          data-nav="directory"
+          class="drawer-item w-full flex items-center justify-between px-4 py-3 rounded-2xl text-sm font-semibold transition cursor-pointer text-slate-700 hover:bg-slate-100"
+        >
+          <span class="flex items-center gap-3">
+            <i data-lucide="users" class="w-5 h-5"></i>
+            <span>Direktori Mahasantri</span>
+          </span>
+          <span class="px-2 py-0.5 rounded-full text-xs font-bold bg-slate-200/80 text-slate-700 tabular-nums">186</span>
+        </button>
+
+        <button
+          type="button"
+          data-nav="prestasi"
+          class="drawer-item w-full flex items-center justify-between px-4 py-3 rounded-2xl text-sm font-semibold transition cursor-pointer text-slate-700 hover:bg-slate-100"
+        >
+          <span class="flex items-center gap-3">
+            <i data-lucide="trophy" class="w-5 h-5"></i>
+            <span>Prestasi UMS</span>
+          </span>
+          <span id="drawerPrestasiBadge" class="px-2 py-0.5 rounded-full text-xs font-bold bg-[#E8F9F7] text-[#159991] tabular-nums">35</span>
+        </button>
+
+        <div class="my-3 border-t border-slate-100"></div>
+        <p class="px-3 pb-1 text-[11px] font-bold uppercase tracking-wider text-slate-400">Aksi Cepat</p>
+
+        <button
+          id="btnDrawerAddPrestasi"
+          type="button"
+          class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-700 hover:bg-amber-50 hover:text-amber-800 transition cursor-pointer"
+        >
+          <i data-lucide="plus-circle" class="w-5 h-5 text-[#D99B00]"></i>
+          <span>Tambah Prestasi (Dummy)</span>
+        </button>
+
+        <button
+          id="btnDrawerExportDir"
+          type="button"
+          class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-700 hover:bg-slate-100 transition cursor-pointer"
+        >
+          <i data-lucide="file-spreadsheet" class="w-5 h-5 text-[#2F3185]"></i>
+          <span>Ekspor CSV Direktori</span>
+        </button>
+
+        <button
+          id="btnDrawerExportPrestasi"
+          type="button"
+          class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-700 hover:bg-slate-100 transition cursor-pointer"
+        >
+          <i data-lucide="award" class="w-5 h-5 text-[#1CBDB3]"></i>
+          <span>Ekspor CSV Prestasi</span>
+        </button>
+      </div>
+
+      <!-- Drawer Footer -->
+      <div class="p-4 bg-slate-50 border-t border-slate-100 text-[11px] text-slate-500">
+        Database 186 Mahasantri (2022–2026) • Mode SPA Offline-Ready
+      </div>
+    </aside>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MAIN CONTENT CONTAINER                                                -->
+  <!-- ===================================================================== -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8 py-5 sm:py-6 space-y-6">
+
+    <!-- =================================================================== -->
+    <!-- VIEW 1: DASHBOARD STATISTIK                                         -->
+    <!-- =================================================================== -->
+    <section id="viewDashboard" class="space-y-5">
+      <!-- Top Bar -->
+      <div class="bg-white rounded-3xl border border-slate-200/80 shadow-xs p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <div>
+          <h2 class="text-base sm:text-lg font-extrabold text-slate-900 flex items-center gap-2">
+            <i data-lucide="pie-chart" class="w-5 h-5 text-[#2F3185]"></i>
+            Ringkasan Statistik Mahasantri
+          </h2>
+          <p id="dashboardSubtitle" class="text-xs sm:text-sm text-slate-500 mt-0.5">
+            Analisis menyeluruh dari seluruh 186 mahasantri angkatan 2022–2026.
+          </p>
+        </div>
+
+        <div class="inline-flex items-center bg-slate-100 p-1 rounded-full border border-slate-200 self-start sm:self-auto">
+          <button
+            id="btnStatsAll"
+            type="button"
+            class="px-3.5 py-1.5 rounded-full text-xs font-semibold transition cursor-pointer bg-[#2F3185] text-white shadow-xs"
+          >
+            Semua Data (186)
+          </button>
+          <button
+            id="btnStatsFiltered"
+            type="button"
+            class="px-3.5 py-1.5 rounded-full text-xs font-semibold transition cursor-pointer text-slate-600 hover:text-slate-900"
+          >
+            Hasil Filter (<span id="statsFilteredCount">186</span>)
+          </button>
+        </div>
+      </div>
+
+      <!-- 6 KPI Cards -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+        <div class="bg-white rounded-3xl border border-slate-200/80 shadow-xs p-4 flex flex-col justify-between hover:shadow-md transition">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-500">Total Mahasantri</span>
+            <div class="w-8 h-8 rounded-2xl bg-[#2F3185]/10 flex items-center justify-center text-[#2F3185]">
+              <i data-lucide="users" class="w-4 h-4"></i>
+            </div>
+          </div>
+          <div class="mt-3">
+            <div id="kpiTotal" class="text-2xl sm:text-3xl font-extrabold text-slate-900 tabular-nums">186</div>
+            <p class="text-[11px] text-slate-500 mt-0.5">Angkatan 2022–2026</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-3xl border border-slate-200/80 shadow-xs p-4 flex flex-col justify-between hover:shadow-md transition">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-500">Status Aktif</span>
+            <div class="w-8 h-8 rounded-2xl bg-[#1CBDB3]/15 flex items-center justify-center text-[#159991]">
+              <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+            </div>
+          </div>
+          <div class="mt-3">
+            <div id="kpiAktif" class="text-2xl sm:text-3xl font-extrabold text-[#159991] tabular-nums">177</div>
+            <p id="kpiAktifPct" class="text-[11px] font-medium text-slate-500 mt-0.5">95.2% dari total</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-3xl border border-slate-200/80 shadow-xs p-4 flex flex-col justify-between hover:shadow-md transition">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-500">Status DO</span>
+            <div class="w-8 h-8 rounded-2xl bg-red-50 flex items-center justify-center text-red-600">
+              <i data-lucide="user-x" class="w-4 h-4"></i>
+            </div>
+          </div>
+          <div class="mt-3">
+            <div id="kpiDO" class="text-2xl sm:text-3xl font-extrabold text-red-600 tabular-nums">9</div>
+            <p id="kpiDOPct" class="text-[11px] font-medium text-slate-500 mt-0.5">4.8% dari total</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-3xl border border-slate-200/80 shadow-xs p-4 flex flex-col justify-between hover:shadow-md transition">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-500">Putra (L)</span>
+            <div class="w-8 h-8 rounded-2xl bg-[#2F3185]/10 flex items-center justify-center text-[#2F3185]">
+              <i data-lucide="user" class="w-4 h-4"></i>
+            </div>
+          </div>
+          <div class="mt-3">
+            <div id="kpiPutra" class="text-2xl sm:text-3xl font-extrabold text-[#2F3185] tabular-nums">121</div>
+            <p id="kpiPutraPct" class="text-[11px] font-medium text-slate-500 mt-0.5">65.1% mahasantri</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-3xl border border-pink-100 shadow-xs p-4 flex flex-col justify-between hover:shadow-md transition">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-500">Putri (P)</span>
+            <div class="w-8 h-8 rounded-2xl bg-[#EC4899]/10 flex items-center justify-center text-[#EC4899]">
+              <i data-lucide="user" class="w-4 h-4"></i>
+            </div>
+          </div>
+          <div class="mt-3">
+            <div id="kpiPutri" class="text-2xl sm:text-3xl font-extrabold text-[#EC4899] tabular-nums">65</div>
+            <p id="kpiPutriPct" class="text-[11px] font-medium text-slate-500 mt-0.5">34.9% mahasantri</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-3xl border border-amber-100 shadow-xs p-4 flex flex-col justify-between hover:shadow-md transition">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-500">Provinsi Asal</span>
+            <div class="w-8 h-8 rounded-2xl bg-[#FFB800]/15 flex items-center justify-center text-[#D99B00]">
+              <i data-lucide="map-pin" class="w-4 h-4"></i>
+            </div>
+          </div>
+          <div class="mt-3">
+            <div id="kpiProvinsi" class="text-2xl sm:text-3xl font-extrabold text-slate-900 tabular-nums">0</div>
+            <p class="text-[11px] font-medium text-slate-500 mt-0.5">Sebaran Nusantara</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Row 1 -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        <div class="lg:col-span-7 bg-white rounded-3xl border border-slate-200/80 shadow-xs p-5 flex flex-col">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
+            <div>
+              <h3 class="text-sm sm:text-base font-bold text-slate-900">Sebaran Mahasantri per Angkatan</h3>
+              <p class="text-xs text-slate-500">Berdasarkan Tahun Masuk & Jenis Kelamin</p>
+            </div>
+            <div class="flex items-center gap-3 text-xs font-semibold">
+              <span class="inline-flex items-center gap-1.5 text-slate-700">
+                <span class="w-3 h-3 rounded-sm bg-[#2F3185]"></span> Putra
+              </span>
+              <span class="inline-flex items-center gap-1.5 text-slate-700">
+                <span class="w-3 h-3 rounded-sm bg-[#EC4899]"></span> Putri
+              </span>
+            </div>
+          </div>
+          <div class="relative w-full h-72 sm:h-80">
+            <canvas id="chartAngkatan"></canvas>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 bg-white rounded-3xl border border-slate-200/80 shadow-xs p-5 flex flex-col">
+          <div class="mb-4">
+            <h3 class="text-sm sm:text-base font-bold text-slate-900">Sebaran Program Studi</h3>
+            <p class="text-xs text-slate-500">Proporsi PAI, IQT, HES & Belum Terdata</p>
+          </div>
+          <div class="relative w-full h-56 sm:h-64 flex items-center justify-center">
+            <canvas id="chartProdi"></canvas>
+          </div>
+          <div id="prodiLegendGrid" class="grid grid-cols-2 gap-2 mt-4 pt-3 border-t border-slate-100 text-xs"></div>
+        </div>
+      </div>
+
+      <!-- Charts Row 2: Provinsi -->
+      <div class="bg-white rounded-3xl border border-slate-200/80 shadow-xs p-5">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+          <div>
+            <h3 class="text-sm sm:text-base font-bold text-slate-900">Sebaran Provinsi Asal Mahasantri</h3>
+            <p class="text-xs text-slate-500">Nama provinsi telah dinormalisasi secara otomatis</p>
+          </div>
+          <div class="inline-flex items-center bg-slate-100 p-1 rounded-full border border-slate-200 self-start sm:self-auto">
+            <button
+              id="btnProvTop12"
+              type="button"
+              class="px-3.5 py-1.5 rounded-full text-xs font-semibold transition cursor-pointer bg-[#2F3185] text-white shadow-xs"
+            >
+              Top 12 Provinsi
+            </button>
+            <button
+              id="btnProvAll"
+              type="button"
+              class="px-3.5 py-1.5 rounded-full text-xs font-semibold transition cursor-pointer text-slate-600 hover:text-slate-900"
+            >
+              Semua Provinsi
+            </button>
+          </div>
+        </div>
+        <div id="chartProvinsiWrapper" class="relative w-full h-[380px] transition-all">
+          <canvas id="chartProvinsi"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- VIEW 2: DIREKTORI MAHASANTRI                                        -->
+    <!-- =================================================================== -->
+    <section id="viewDirectory" class="hidden space-y-5">
+      <!-- Search & Filter Panel -->
+      <div class="bg-white rounded-3xl border border-slate-200/80 shadow-xs p-4 sm:p-5 space-y-4">
+        <div class="flex flex-col md:flex-row gap-3">
+          <div class="relative flex-1">
+            <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+            <input
+              id="searchInput"
+              type="text"
+              placeholder="Cari Nama, NIM Pondok, NIM UMS, Kab/Kota, Provinsi, Sekolah, atau Pondok..."
+              class="w-full pl-10 pr-10 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#2F3185]/30 focus:border-[#2F3185] transition placeholder:text-slate-400"
+            />
+            <button
+              id="btnClearSearch"
+              type="button"
+              class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1 cursor-pointer"
+              title="Hapus pencarian"
+            >
+              <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <button
+            id="btnResetFilters"
+            type="button"
+            class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-semibold border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 transition cursor-pointer shrink-0"
+          >
+            <i data-lucide="rotate-ccw" class="w-4 h-4 text-slate-500"></i>
+            <span>Reset Filter</span>
+          </button>
+        </div>
+
+        <!-- Filters Row -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-3 pt-1">
+          <!-- Gender Pills -->
+          <div class="lg:col-span-4 flex flex-col gap-1.5">
+            <label class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Jenis Kelamin</label>
+            <div class="grid grid-cols-3 gap-1.5 bg-slate-100 p-1 rounded-2xl border border-slate-200">
+              <button
+                type="button"
+                data-gender="ALL"
+                class="gender-pill py-2 px-2 rounded-xl text-xs font-bold transition cursor-pointer bg-[#FFB800] text-[#1C1E55] shadow-xs"
+              >
+                Semua
+              </button>
+              <button
+                type="button"
+                data-gender="Laki-Laki"
+                class="gender-pill py-2 px-2 rounded-xl text-xs font-bold transition cursor-pointer text-slate-600 hover:text-[#2F3185]"
+              >
+                Putra
+              </button>
+              <button
+                type="button"
+                data-gender="Perempuan"
+                class="gender-pill py-2 px-2 rounded-xl text-xs font-bold transition cursor-pointer text-slate-600 hover:text-[#EC4899]"
+              >
+                Putri
+              </button>
+            </div>
+          </div>
+
+          <div class="lg:col-span-2 flex flex-col gap-1.5">
+            <label for="filterAngkatan" class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Angkatan</label>
+            <select id="filterAngkatan" class="w-full py-2.5 px-3 text-xs sm:text-sm font-medium bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#2F3185]/30 focus:border-[#2F3185] cursor-pointer">
+              <option value="ALL">Semua Angkatan</option>
+              <option value="2026">2026</option>
+              <option value="2025">2025</option>
+              <option value="2024">2024</option>
+              <option value="2023">2023</option>
+              <option value="2022">2022</option>
+            </select>
+          </div>
+
+          <div class="lg:col-span-2 flex flex-col gap-1.5">
+            <label for="filterProdi" class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Program Studi</label>
+            <select id="filterProdi" class="w-full py-2.5 px-3 text-xs sm:text-sm font-medium bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#2F3185]/30 focus:border-[#2F3185] cursor-pointer">
+              <option value="ALL">Semua Prodi</option>
+              <option value="PAI">PAI</option>
+              <option value="IQT">IQT</option>
+              <option value="HES">HES</option>
+              <option value="-">Belum Ada (-)</option>
+            </select>
+          </div>
+
+          <div class="lg:col-span-2 flex flex-col gap-1.5">
+            <label for="filterStatus" class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Status</label>
+            <select id="filterStatus" class="w-full py-2.5 px-3 text-xs sm:text-sm font-medium bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#2F3185]/30 focus:border-[#2F3185] cursor-pointer">
+              <option value="ALL">Semua Status</option>
+              <option value="Aktif">Aktif</option>
+              <option value="DO">DO</option>
+            </select>
+          </div>
+
+          <div class="lg:col-span-2 flex flex-col gap-1.5">
+            <label for="filterProvinsi" class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Provinsi</label>
+            <select id="filterProvinsi" class="w-full py-2.5 px-3 text-xs sm:text-sm font-medium bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#2F3185]/30 focus:border-[#2F3185] cursor-pointer">
+              <option value="ALL">Semua Provinsi</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Toolbar -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 px-1">
+        <div class="text-xs sm:text-sm text-slate-600">
+          Menampilkan <span id="showingRange" class="font-bold text-slate-900">1–20</span> dari
+          <span id="filteredTotalCount" class="font-bold text-[#2F3185]">186</span> mahasantri
+          <span class="hidden sm:inline text-slate-400 ml-1">• Klik baris untuk detail & riwayat prestasi</span>
+        </div>
+
+        <div class="flex items-center gap-2 text-xs sm:text-sm">
+          <label for="pageSizeSelect" class="text-slate-500 font-medium">Baris:</label>
+          <select id="pageSizeSelect" class="py-1.5 px-2.5 bg-white border border-slate-200 rounded-xl font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-[#2F3185]/30 cursor-pointer">
+            <option value="20" selected>20</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+            <option value="ALL">Semua</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Directory Table Card -->
+      <div class="bg-white rounded-3xl border border-slate-200/80 shadow-xs overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-50/90 border-b border-slate-200 text-[11px] font-bold uppercase tracking-wider text-slate-500">
+                <th class="py-3.5 px-4 w-12 text-center">No</th>
+                <th class="py-3.5 px-4 cursor-pointer hover:text-[#2F3185] select-none transition" data-sort="nimPondok">
+                  <div class="inline-flex items-center gap-1">
+                    <span>NIM Pondok</span>
+                    <i data-lucide="arrow-up-down" class="w-3.5 h-3.5 sort-icon" data-sort-icon="nimPondok"></i>
+                  </div>
+                </th>
+                <th class="py-3.5 px-4 cursor-pointer hover:text-[#2F3185] select-none transition" data-sort="nama">
+                  <div class="inline-flex items-center gap-1">
+                    <span>Nama Mahasantri</span>
+                    <i data-lucide="arrow-up-down" class="w-3.5 h-3.5 sort-icon" data-sort-icon="nama"></i>
+                  </div>
+                </th>
+                <th class="py-3.5 px-4 cursor-pointer hover:text-[#2F3185] select-none transition text-center" data-sort="angkatan">
+                  <div class="inline-flex items-center gap-1">
+                    <span>Angk.</span>
+                    <i data-lucide="arrow-up-down" class="w-3.5 h-3.5 sort-icon" data-sort-icon="angkatan"></i>
+                  </div>
+                </th>
+                <th class="py-3.5 px-4 text-center">JK</th>
+                <th class="py-3.5 px-4 text-center">Prodi</th>
+                <th class="py-3.5 px-4 cursor-pointer hover:text-[#2F3185] select-none transition" data-sort="provinsi">
+                  <div class="inline-flex items-center gap-1">
+                    <span>Asal Daerah</span>
+                    <i data-lucide="arrow-up-down" class="w-3.5 h-3.5 sort-icon" data-sort-icon="provinsi"></i>
+                  </div>
+                </th>
+                <th class="py-3.5 px-4 text-center">Status</th>
+                <th class="py-3.5 px-4 text-right">Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody" class="divide-y divide-slate-100 text-xs sm:text-sm"></tbody>
+          </table>
+        </div>
+
+        <!-- Empty State -->
+        <div id="emptyState" class="hidden py-14 px-6 text-center">
+          <div class="w-14 h-14 mx-auto rounded-2xl bg-slate-100 flex items-center justify-center text-slate-400 mb-3">
+            <i data-lucide="search-x" class="w-7 h-7"></i>
+          </div>
+          <h4 class="text-base font-bold text-slate-800">Data tidak ditemukan</h4>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1 max-w-md mx-auto">
+            Tidak ada mahasantri yang cocok dengan kombinasi pencarian dan filter Anda.
+          </p>
+          <button
+            id="btnEmptyReset"
+            type="button"
+            class="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#2F3185] text-white text-xs font-semibold hover:bg-[#25276D] transition cursor-pointer"
+          >
+            <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+            Tampilkan Semua Data
+          </button>
+        </div>
+
+        <!-- Pagination Footer -->
+        <div id="paginationFooter" class="bg-slate-50/70 border-t border-slate-200 px-4 py-3 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div id="pageInfoText" class="text-xs font-medium text-slate-500">Halaman 1 dari 10</div>
+          <div id="paginationControls" class="flex items-center gap-1.5 flex-wrap justify-center"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- VIEW 3: PRESTASI AKADEMIK & NON-AKADEMIK DI UMS (HALAMAN BARU)      -->
+    <!-- =================================================================== -->
+    <section id="viewPrestasi" class="hidden space-y-5">
+      <!-- Simulation Banner + Action Buttons -->
+      <div class="bg-gradient-to-r from-[#2F3185] via-[#282A75] to-[#1C1E55] rounded-3xl p-5 sm:p-6 text-white shadow-md relative overflow-hidden">
+        <div class="absolute -right-8 -top-8 w-40 h-40 rounded-full bg-[#FFB800]/10 pointer-events-none"></div>
+        <div class="absolute -right-4 -bottom-10 w-32 h-32 rounded-full bg-[#1CBDB3]/15 pointer-events-none"></div>
+
+        <div class="relative flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+          <div class="space-y-2 max-w-2xl">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FFB800]/20 border border-[#FFB800]/40 text-[#FFE28A] text-[11px] font-bold">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-[#FFB800]"></i>
+              <span>Data Dummy (Simulasi) • Dapat Ditambah Interaktif di Browser</span>
+            </div>
+            <h2 class="text-lg sm:text-2xl font-extrabold tracking-tight">
+              Prestasi Akademik & Non-Akademik di UMS
+            </h2>
+            <p class="text-xs sm:text-sm text-indigo-100/90 leading-relaxed">
+              Rekam jejak capaian mahasantri Pondok Hajjah Nuriyah Shabran selama menempuh studi di Universitas Muhammadiyah Surakarta (2023–2026), terhubung langsung dengan profil 186 mahasantri.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2.5 shrink-0">
+            <button
+              id="btnOpenAddPrestasi"
+              type="button"
+              class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#FFB800] hover:bg-[#e5a600] active:scale-[0.98] text-[#1C1E55] text-xs sm:text-sm font-extrabold shadow-sm transition cursor-pointer"
+            >
+              <i data-lucide="plus" class="w-4 h-4"></i>
+              <span>Tambah Prestasi (Dummy)</span>
+            </button>
+
+            <button
+              id="btnExportPrestasiCSV"
+              type="button"
+              class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/15 hover:bg-white/25 border border-white/20 text-white text-xs sm:text-sm font-bold transition cursor-pointer"
+            >
+              <i data-lucide="download" class="w-4 h-4 text-[#1CBDB3]"></i>
+              <span>Ekspor CSV Prestasi</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 KPI Cards Prestasi -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+        <div class="bg-white rounded-3xl border border-slate-200/80 shadow-xs p-4 flex flex-col justify-between hover:shadow-md transition">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-500">Total Prestasi</span>
+            <div class="w-8 h-8 rounded-2xl bg-[#FFB800]/15 flex items-center justify-center text-[#D99B00]">
+              <i data-lucide="trophy" class="w-4 h-4"></i>
+            </div>
+          </div>
+          <div class="mt-3">
+            <div id="kpiPrestasiTotal" class="text-2xl sm:text-3xl font-extrabold text-slate-900 tabular-nums">35</div>
+            <p class="text-[11px] text-slate-500 mt-0.5">Periode 2023–2026</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-3xl border border-slate-200/80 shadow-xs p-4 flex flex-col justify-between hover:shadow-md transition">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-500">Akademik</span>
+            <div class="w-8 h-8 rounded-2xl bg-[#2F3185]/10 flex items-center justify-center text-[#2F3185]">
+              <i data-lucide="book-open-check" class="w-4 h-4"></i>
+            </div>
+          </div>
+          <div class="mt-3">
+            <div id="kpiPrestasiAkademik" class="text-2xl sm:text-3xl font-extrabold text-[#2F3185] tabular-nums">0</div>
+            <p id="kpiPrestasiAkademikPct" class="text-[11px] text-slate-500 mt-0.5">0% dari total</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-3xl border border-slate-200/80 shadow-xs p-4 flex flex-col justify-between hover:shadow-md transition">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-500">Non-Akademik</span>
+            <div class="w-8 h-8 rounded-2xl bg-[#1CBDB3]/15 flex items-center justify-center text-[#159991]">
+              <i data-lucide="medal" class="w-4 h-4"></i>
+            </div>
+          </div>
+          <div class="mt-3">
+            <div id="kpiPrestasiNonAkademik" class="text-2xl sm:text-3xl font-extrabold text-[#159991] tabular-nums">0</div>
+            <p id="kpiPrestasiNonAkademikPct" class="text-[11px] text-slate-500 mt-0.5">0% dari total</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-3xl border border-slate-200/80 shadow-xs p-4 flex flex-col justify-between hover:shadow-md transition">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-500">Int'l & Nasional</span>
+            <div class="w-8 h-8 rounded-2xl bg-indigo-50 flex items-center justify-center text-indigo-600">
+              <i data-lucide="globe" class="w-4 h-4"></i>
+            </div>
+          </div>
+          <div class="mt-3">
+            <div id="kpiPrestasiIntNas" class="text-2xl sm:text-3xl font-extrabold text-indigo-700 tabular-nums">0</div>
+            <p id="kpiPrestasiIntNasDetail" class="text-[11px] text-slate-500 mt-0.5">Int'l & Nasional</p>
+          </div>
+        </div>
+
+        <div class="col-span-2 sm:col-span-1 bg-white rounded-3xl border border-pink-100 shadow-xs p-4 flex flex-col justify-between hover:shadow-md transition">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-500">Mahasantri Berprestasi</span>
+            <div class="w-8 h-8 rounded-2xl bg-[#EC4899]/10 flex items-center justify-center text-[#EC4899]">
+              <i data-lucide="star" class="w-4 h-4"></i>
+            </div>
+          </div>
+          <div class="mt-3">
+            <div id="kpiPrestasiUnique" class="text-2xl sm:text-3xl font-extrabold text-slate-900 tabular-nums">0</div>
+            <p id="kpiPrestasiUniqueGender" class="text-[11px] text-slate-500 mt-0.5">Putra & Putri</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Grid Prestasi (3 Charts) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        <!-- Chart 1: Doughnut Akademik vs Non-Akademik -->
+        <div class="lg:col-span-4 bg-white rounded-3xl border border-slate-200/80 shadow-xs p-5 flex flex-col">
+          <div class="mb-3">
+            <h3 class="text-sm font-bold text-slate-900">Proporsi Kategori</h3>
+            <p class="text-xs text-slate-500">Akademik vs Non-Akademik</p>
+          </div>
+          <div class="relative w-full h-52 flex items-center justify-center">
+            <canvas id="chartPrestasiKategori"></canvas>
+          </div>
+          <div id="prestasiKategoriLegend" class="grid grid-cols-2 gap-2 mt-4 pt-3 border-t border-slate-100 text-xs"></div>
+        </div>
+
+        <!-- Chart 2: Bar Sebaran Tingkat Prestasi -->
+        <div class="lg:col-span-4 bg-white rounded-3xl border border-slate-200/80 shadow-xs p-5 flex flex-col">
+          <div class="mb-3">
+            <h3 class="text-sm font-bold text-slate-900">Sebaran Tingkat Prestasi</h3>
+            <p class="text-xs text-slate-500">Internasional, Nasional, Provinsi & UMS</p>
+          </div>
+          <div class="relative w-full h-64">
+            <canvas id="chartPrestasiTingkat"></canvas>
+          </div>
+        </div>
+
+        <!-- Chart 3: Bar Tren Prestasi per Tahun -->
+        <div class="lg:col-span-4 bg-white rounded-3xl border border-slate-200/80 shadow-xs p-5 flex flex-col">
+          <div class="mb-3">
+            <h3 class="text-sm font-bold text-slate-900">Tren Prestasi per Tahun</h3>
+            <p class="text-xs text-slate-500">Perkembangan capaian tahun 2023–2026</p>
+          </div>
+          <div class="relative w-full h-64">
+            <canvas id="chartPrestasiTahun"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filter & Search Bar Prestasi -->
+      <div class="bg-white rounded-3xl border border-slate-200/80 shadow-xs p-4 sm:p-5 space-y-4">
+        <div class="flex flex-col md:flex-row gap-3">
+          <div class="relative flex-1">
+            <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+            <input
+              id="prestasiSearchInput"
+              type="text"
+              placeholder="Cari nama mahasantri, NIM, nama kompetisi, atau penyelenggara..."
+              class="w-full pl-10 pr-10 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#2F3185]/30 focus:border-[#2F3185] transition placeholder:text-slate-400"
+            />
+            <button
+              id="btnClearPrestasiSearch"
+              type="button"
+              class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1 cursor-pointer"
+              title="Hapus pencarian"
+            >
+              <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <button
+            id="btnResetPrestasiFilters"
+            type="button"
+            class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-semibold border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 transition cursor-pointer shrink-0"
+          >
+            <i data-lucide="rotate-ccw" class="w-4 h-4 text-slate-500"></i>
+            <span>Reset Filter</span>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-3">
+          <!-- Category Pills -->
+          <div class="lg:col-span-5 flex flex-col gap-1.5">
+            <label class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Kategori Prestasi</label>
+            <div class="grid grid-cols-3 gap-1.5 bg-slate-100 p-1 rounded-2xl border border-slate-200">
+              <button
+                type="button"
+                data-pcat="ALL"
+                class="pcat-pill py-2 px-2 rounded-xl text-xs font-bold transition cursor-pointer bg-[#FFB800] text-[#1C1E55] shadow-xs"
+              >
+                Semua
+              </button>
+              <button
+                type="button"
+                data-pcat="Akademik"
+                class="pcat-pill py-2 px-2 rounded-xl text-xs font-bold transition cursor-pointer text-slate-600 hover:text-[#2F3185]"
+              >
+                Akademik
+              </button>
+              <button
+                type="button"
+                data-pcat="Non-Akademik"
+                class="pcat-pill py-2 px-2 rounded-xl text-xs font-bold transition cursor-pointer text-slate-600 hover:text-[#159991]"
+              >
+                Non-Akademik
+              </button>
+            </div>
+          </div>
+
+          <!-- Tingkat Filter -->
+          <div class="lg:col-span-3 flex flex-col gap-1.5">
+            <label for="filterPrestasiTingkat" class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Tingkat</label>
+            <select id="filterPrestasiTingkat" class="w-full py-2.5 px-3 text-xs sm:text-sm font-medium bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#2F3185]/30 focus:border-[#2F3185] cursor-pointer">
+              <option value="ALL">Semua Tingkat</option>
+              <option value="Internasional">Internasional</option>
+              <option value="Nasional">Nasional</option>
+              <option value="Provinsi">Provinsi / Regional</option>
+              <option value="Universitas">Universitas (UMS)</option>
+            </select>
+          </div>
+
+          <!-- Tahun Filter -->
+          <div class="lg:col-span-2 flex flex-col gap-1.5">
+            <label for="filterPrestasiTahun" class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Tahun</label>
+            <select id="filterPrestasiTahun" class="w-full py-2.5 px-3 text-xs sm:text-sm font-medium bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#2F3185]/30 focus:border-[#2F3185] cursor-pointer">
+              <option value="ALL">Semua Tahun</option>
+              <option value="2026">2026</option>
+              <option value="2025">2025</option>
+              <option value="2024">2024</option>
+              <option value="2023">2023</option>
+            </select>
+          </div>
+
+          <!-- Gender Filter -->
+          <div class="lg:col-span-2 flex flex-col gap-1.5">
+            <label for="filterPrestasiGender" class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Jenis Kelamin</label>
+            <select id="filterPrestasiGender" class="w-full py-2.5 px-3 text-xs sm:text-sm font-medium bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#2F3185]/30 focus:border-[#2F3185] cursor-pointer">
+              <option value="ALL">Semua</option>
+              <option value="Laki-Laki">Putra (L)</option>
+              <option value="Perempuan">Putri (P)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Result Bar -->
+      <div class="flex items-center justify-between px-1">
+        <p class="text-xs sm:text-sm text-slate-600">
+          Menampilkan <span id="prestasiFilteredCount" class="font-bold text-[#2F3185]">35</span> capaian prestasi
+          <span class="hidden sm:inline text-slate-400 ml-1">• Klik nama mahasantri untuk melihat profil lengkap</span>
+        </p>
+      </div>
+
+      <!-- Achievement Cards Grid (Mobile-First Material Design 3 Cards) -->
+      <div id="prestasiGrid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4"></div>
+
+      <!-- Empty State Prestasi -->
+      <div id="prestasiEmptyState" class="hidden bg-white rounded-3xl border border-slate-200/80 py-14 px-6 text-center">
+        <div class="w-14 h-14 mx-auto rounded-2xl bg-slate-100 flex items-center justify-center text-slate-400 mb-3">
+          <i data-lucide="trophy" class="w-7 h-7"></i>
+        </div>
+        <h4 class="text-base font-bold text-slate-800">Prestasi tidak ditemukan</h4>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1 max-w-md mx-auto">
+          Tidak ada data prestasi yang sesuai dengan filter atau kata kunci pencarian Anda.
+        </p>
+        <button
+          id="btnPrestasiEmptyReset"
+          type="button"
+          class="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#2F3185] text-white text-xs font-semibold hover:bg-[#25276D] transition cursor-pointer"
+        >
+          <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+          Reset Filter Prestasi
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================================================================== -->
+  <!-- FOOTER                                                                -->
+  <!-- ===================================================================== -->
+  <footer class="mt-auto border-t border-slate-200 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500">
+      <p class="font-medium text-center sm:text-left">
+        &copy; <span id="footerYear">2026</span> Pondok Hajjah Nuriyah Shabran — Universitas Muhammadiyah Surakarta
+      </p>
+      <p class="text-slate-400">
+        186 Mahasantri (2022–2026) • Portal Statistik, Direktori & Prestasi
+      </p>
+    </div>
+  </footer>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL DETAIL MAHASANTRI (TERINTEGRASI RIWAYAT PRESTASI)               -->
+  <!-- ===================================================================== -->
+  <div
+    id="detailModalOverlay"
+    class="hidden fixed inset-0 z-50 bg-slate-900/55 backdrop-blur-[2px] flex items-center justify-center p-3 sm:p-4"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modalNama"
+  >
+    <div class="modal-animate bg-white w-full max-w-xl rounded-3xl shadow-2xl border border-slate-200 overflow-hidden max-h-[92vh] flex flex-col">
+      <!-- Modal Header -->
+      <div id="modalHeaderBanner" class="bg-[#2F3185] px-5 sm:px-6 py-5 text-white relative">
+        <button
+          id="btnCloseModal"
+          type="button"
+          class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center text-white transition cursor-pointer"
+          aria-label="Tutup modal"
+        >
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+
+        <div class="flex items-start gap-3.5 pr-10">
+          <div id="modalAvatar" class="w-12 h-12 rounded-2xl bg-white/15 border border-white/25 flex items-center justify-center text-lg font-extrabold shrink-0">
+            A
+          </div>
+          <div class="min-w-0">
+            <div class="flex items-center gap-2 flex-wrap mb-1">
+              <span id="modalStatusBadge" class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#1CBDB3] text-white">Aktif</span>
+              <span id="modalAngkatanBadge" class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#FFB800] text-[#1C1E55]">Angkatan 2026</span>
+            </div>
+            <h3 id="modalNama" class="text-base sm:text-lg font-extrabold leading-snug break-words">NAMA MAHASANTRI</h3>
+            <p id="modalNimSubtitle" class="text-xs text-white/80 font-mono mt-0.5">H100260001</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-5 sm:p-6 overflow-y-auto space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="bg-slate-50 rounded-2xl p-3.5 border border-slate-100">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">NIM Pondok</span>
+            <p id="detailNimPondok" class="text-sm font-bold text-slate-900 font-mono mt-0.5">-</p>
+          </div>
+          <div class="bg-slate-50 rounded-2xl p-3.5 border border-slate-100">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">NIM Kampus (UMS)</span>
+            <p id="detailNimUms" class="text-sm font-bold text-slate-900 font-mono mt-0.5">-</p>
+          </div>
+          <div class="bg-slate-50 rounded-2xl p-3.5 border border-slate-100">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Program Studi</span>
+            <p id="detailProdi" class="text-sm font-bold text-slate-900 mt-0.5">-</p>
+          </div>
+          <div class="bg-slate-50 rounded-2xl p-3.5 border border-slate-100">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Jenis Kelamin</span>
+            <p id="detailJK" class="text-sm font-bold text-slate-900 mt-0.5">-</p>
+          </div>
+          <div class="bg-slate-50 rounded-2xl p-3.5 border border-slate-100">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Kabupaten / Kota</span>
+            <p id="detailKabKota" class="text-sm font-semibold text-slate-800 mt-0.5">-</p>
+          </div>
+          <div class="bg-slate-50 rounded-2xl p-3.5 border border-slate-100">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Provinsi</span>
+            <p id="detailProvinsi" class="text-sm font-semibold text-slate-800 mt-0.5">-</p>
+          </div>
+        </div>
+
+        <div class="bg-slate-50 rounded-2xl p-3.5 border border-slate-100">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+            <i data-lucide="school" class="w-3.5 h-3.5 text-[#2F3185]"></i> Asal Sekolah (SMA/MA/SMK)
+          </span>
+          <p id="detailSekolah" class="text-sm font-semibold text-slate-800 mt-1 leading-relaxed">-</p>
+        </div>
+
+        <div class="bg-slate-50 rounded-2xl p-3.5 border border-slate-100">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+            <i data-lucide="book-open" class="w-3.5 h-3.5 text-[#1CBDB3]"></i> Asal Pondok Pesantren
+          </span>
+          <p id="detailPondok" class="text-sm font-semibold text-slate-800 mt-1 leading-relaxed">-</p>
+        </div>
+
+        <!-- Cross-Integration: Riwayat Prestasi di UMS -->
+        <div class="bg-amber-50/70 rounded-2xl p-4 border border-amber-200/70">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-amber-800 flex items-center gap-1.5">
+              <i data-lucide="trophy" class="w-3.5 h-3.5 text-[#D99B00]"></i> Riwayat Prestasi di UMS (Simulasi)
+            </span>
+            <span id="detailPrestasiCountBadge" class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-200/80 text-amber-900">0 Prestasi</span>
+          </div>
+          <div id="detailPrestasiList" class="space-y-2"></div>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="px-5 sm:px-6 py-4 bg-slate-50 border-t border-slate-200 flex items-center justify-end gap-2.5">
+        <button
+          id="btnCopyDetail"
+          type="button"
+          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#2F3185] hover:bg-[#25276D] text-white text-xs sm:text-sm font-semibold shadow-xs transition cursor-pointer"
+        >
+          <i data-lucide="copy" class="w-4 h-4"></i>
+          <span>Salin Data</span>
+        </button>
+        <button
+          id="btnCloseModalFooter"
+          type="button"
+          class="px-4 py-2.5 rounded-full border border-slate-300 bg-white hover:bg-slate-100 text-slate-700 text-xs sm:text-sm font-semibold transition cursor-pointer"
+        >
+          Tutup
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL TAMBAH PRESTASI (DUMMY SIMULASI)                                -->
+  <!-- ===================================================================== -->
+  <div
+    id="addPrestasiModalOverlay"
+    class="hidden fixed inset-0 z-50 bg-slate-900/55 backdrop-blur-[2px] flex items-center justify-center p-3 sm:p-4"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="addPrestasiTitle"
+  >
+    <div class="modal-animate bg-white w-full max-w-lg rounded-3xl shadow-2xl border border-slate-200 overflow-hidden max-h-[92vh] flex flex-col">
+      <!-- Header -->
+      <div class="bg-[#2F3185] px-6 py-4 text-white flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-2xl bg-[#FFB800]/20 flex items-center justify-center text-[#FFB800]">
+            <i data-lucide="award" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 id="addPrestasiTitle" class="text-base font-extrabold">Tambah Prestasi (Dummy)</h3>
+            <p class="text-[11px] text-indigo-200">Tersimpan sementara di memori browser</p>
+          </div>
+        </div>
+        <button
+          id="btnCloseAddPrestasi"
+          type="button"
+          class="w-8 h-8 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center text-white transition cursor-pointer"
+          aria-label="Tutup form"
+        >
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Form Body -->
+      <form id="formAddPrestasi" class="p-5 sm:p-6 overflow-y-auto space-y-4">
+        <div>
+          <label for="inputPrestasiMahasantri" class="block text-xs font-bold text-slate-700 mb-1.5">
+            Pilih Mahasantri (dari 186 Data) <span class="text-red-500">*</span>
+          </label>
+          <select
+            id="inputPrestasiMahasantri"
+            required
+            class="w-full py-2.5 px-3 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#2F3185]/30 focus:border-[#2F3185]"
+          >
+            <option value="">-- Pilih NIM & Nama Mahasantri --</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="inputPrestasiJudul" class="block text-xs font-bold text-slate-700 mb-1.5">
+            Nama Kompetisi / Penghargaan <span class="text-red-500">*</span>
+          </label>
+          <input
+            id="inputPrestasiJudul"
+            type="text"
+            required
+            placeholder="Contoh: MTQ Mahasiswa Nasional Hifzhil Qur'an 20 Juz"
+            class="w-full py-2.5 px-3.5 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#2F3185]/30 focus:border-[#2F3185]"
+          />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label for="inputPrestasiKategori" class="block text-xs font-bold text-slate-700 mb-1.5">Kategori</label>
+            <select
+              id="inputPrestasiKategori"
+              required
+              class="w-full py-2.5 px-3 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#2F3185]/30 focus:border-[#2F3185]"
+            >
+              <option value="Akademik">Akademik</option>
+              <option value="Non-Akademik">Non-Akademik</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="inputPrestasiPeringkat" class="block text-xs font-bold text-slate-700 mb-1.5">Peringkat / Medali</label>
+            <select
+              id="inputPrestasiPeringkat"
+              required
+              class="w-full py-2.5 px-3 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#2F3185]/30 focus:border-[#2F3185]"
+            >
+              <option value="Juara 1">Juara 1 / Emas</option>
+              <option value="Juara 2">Juara 2 / Perak</option>
+              <option value="Juara 3">Juara 3 / Perunggu</option>
+              <option value="Penghargaan">Penghargaan / Terbaik</option>
+              <option value="Delegasi">Delegasi Resmi</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="inputPrestasiTingkat" class="block text-xs font-bold text-slate-700 mb-1.5">Tingkat</label>
+            <select
+              id="inputPrestasiTingkat"
+              required
+              class="w-full py-2.5 px-3 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#2F3185]/30 focus:border-[#2F3185]"
+            >
+              <option value="Internasional">Internasional</option>
+              <option value="Nasional" selected>Nasional</option>
+              <option value="Provinsi">Provinsi</option>
+              <option value="Universitas">Universitas</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="inputPrestasiTahun" class="block text-xs font-bold text-slate-700 mb-1.5">Tahun</label>
+            <select
+              id="inputPrestasiTahun"
+              required
+              class="w-full py-2.5 px-3 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#2F3185]/30 focus:border-[#2F3185]"
+            >
+              <option value="2026" selected>2026</option>
+              <option value="2025">2025</option>
+              <option value="2024">2024</option>
+              <option value="2023">2023</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="inputPrestasiPenyelenggara" class="block text-xs font-bold text-slate-700 mb-1.5">
+            Penyelenggara <span class="text-red-500">*</span>
+          </label>
+          <input
+            id="inputPrestasiPenyelenggara"
+            type="text"
+            required
+            placeholder="Contoh: Kemendikbudristek RI / BEM UMS"
+            class="w-full py-2.5 px-3.5 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#2F3185]/30 focus:border-[#2F3185]"
+          />
+        </div>
+
+        <div class="pt-2 flex items-center justify-end gap-2.5">
+          <button
+            id="btnCancelAddPrestasi"
+            type="button"
+            class="px-4 py-2.5 rounded-full border border-slate-300 bg-white hover:bg-slate-100 text-slate-700 text-xs sm:text-sm font-semibold transition cursor-pointer"
+          >
+            Batal
+          </button>
+          <button
+            type="submit"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#2F3185] hover:bg-[#25276D] text-white text-xs sm:text-sm font-bold shadow-sm transition cursor-pointer"
+          >
+            <i data-lucide="check" class="w-4 h-4"></i>
+            <span>Simpan Prestasi</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- TOAST NOTIFICATION                                                    -->
+  <!-- ===================================================================== -->
+  <div
+    id="toastBox"
+    class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-slate-900 text-white px-4 py-3 rounded-2xl shadow-xl flex items-center gap-2.5 text-xs sm:text-sm font-medium max-w-[92vw]"
+    role="status"
+    aria-live="polite"
+  >
+    <i data-lucide="check-circle" class="w-4 h-4 text-[#1CBDB3] shrink-0"></i>
+    <span id="toastMessage">Berhasil</span>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- APPLICATION JAVASCRIPT                                                -->
+  <!-- ===================================================================== -->
+  <script>
+    /**
+     * =========================================================================
+     * 1. RAW DATASET: SELURUH 186 DATA MAHASANTRI PONDOK HAJJAH NURIYAH SHABRAN
+     * Format: Status|NIM_Pondok|NIM_UMS|Prodi|Nama|JK|KabKota|Provinsi|Sekolah|Pondok
+     * =========================================================================
+     */
+    const RAW_DATA = `
+Aktif|H100260001|-|-|AHMAD DAFA MUGI UTOMO|Laki-Laki|Lampung Timur|Lampung|SMAS Muhammadiyah 1 Way Jepara Lampung Timur|PP Muhammadiyah Tahfidz Al Quran Al Arqam
+Aktif|H100260002|-|-|AHMAD EMIR AL AWFA|Laki-Laki|Kota Malang|Jawa Timur|SMA Muhammadiyah 1 Kota Malang|PP Daarul Ukhuwah
+Aktif|H100260003|-|-|ALFISYAHRIN|Laki-Laki|Mamuju|Sulawesi Barat|PP Ahlul Qur'an Polman|PP Ahlul Qur'an Polman
+Aktif|H100260004|-|-|ALIF ARHAM JUNDULLAH|Laki-Laki|Mamuju|Sulawesi Barat|Ahlul Qur'an Polewali Mandar|Ahlul Qur'an Polewali Mandar
+Aktif|H100260005|-|-|ALIF PALINGGA|Laki-Laki|Majene|Sulawesi Barat|PP Ahlul Qur'an Polman|PP Ahlul Qur'an Polman
+Aktif|H100260006|-|-|FADLI AL FATIR|Laki-Laki|Lampung Timur|Lampung|SMA Muhammadiyah Al-Ghifari|PP Muhammadiyah Abu Dzar Al-Ghifari
+Aktif|H100260007|-|-|FAHRI AL FAHMI|Laki-Laki|Kota Tegal|Jawa Tengah|SMK Muhammadiyah 2 Kota Tegal|PP Muhammadiyah Subulussalam
+Aktif|H100260008|-|-|IBRAHIM SYAMSU RIZAL|Laki-Laki|Lombok Timur|Nusa Tenggara Barat|SMAS MBS Selong|Ponpes MBS Selong
+Aktif|H100260009|-|-|KHAIRAN HAWARY YELSKY|Laki-Laki|Kota Banda Aceh|Aceh|SMA Muhammadiyah 1 Banda Aceh|-
+Aktif|H100260010|-|-|KHOWARIZMI AZAM IHSAN|Laki-Laki|Sikka|Nusa Tenggara Timur|Madrasah Mu'allimin Muhammadiyah Yogyakarta|Madrasah Mu'allimin Muhammadiyah Yogyakarta
+Aktif|H100260011|-|-|M. SALMAN AL-FARISI|Laki-Laki|Kota Bandar Lampung|Lampung|SMA Muhammadiyah 1 Candipuro|MBS Cintamulya
+Aktif|H100260012|-|-|MAJDI HANZHALAH ASKARULLAH|Laki-Laki|Sumenep|Jawa Timur|SMA Muhammadiyah 1 Sumenep|-
+Aktif|H100260013|-|-|MARTIN|Laki-Laki|Belitung Timur|Bangka Belitung|SMK Muhammadiyah Belitung Timur|-
+Aktif|H100260014|-|-|MUHAMMAD MALIK IBRAHIM YUSTISIA|Laki-Laki|Semarang|Jawa Tengah|MA Nurul Islam Tengaran|Nurul Islam Tengaran
+Aktif|H100260015|-|-|MUHAMMAD NAKULA TSAQIB TAQIYYUDDIN|Laki-Laki|Lamongan|Jawa Timur|MA Daarul Ukhuwwah|PP Daarul Ukhuwwah
+Aktif|H100260016|-|-|MUHAMMAD TRI HASAN NUDIN|Laki-Laki|Rembang|Jawa Tengah|SMK Muhammadiyah Rembang|PP Ad-Da'wa
+Aktif|H100260017|-|-|NARWINSYAH DUHA|Laki-Laki|Nias Utara|Sumatera Utara|MAS Lahewa|-
+Aktif|H100260018|-|-|RAIHAN ALBANA ASIDIKI|Laki-Laki|Blitar|Jawa Timur|Ponpes Modern Al Aqsho Blitar|Pondok KMI
+Aktif|H100260019|-|-|RIFKI PUTRA RAMADHAN|Laki-Laki|Pasaman Barat|Sumatera Barat|MAN 1 Kota Bukittinggi|-
+Aktif|H100260020|-|-|YASYFIN NAFIL ADZKA|Laki-Laki|Mempawah|Kalimantan Barat|MAS Darussalam Sengkubang|PP Darussalam Sengkubang
+Aktif|H100260021|-|-|AISYAH LATIFATUN NAJWA|Perempuan|Magelang|Jawa Tengah|Pondok|MBS Roudhotun Nasyi'in Jatinom
+Aktif|H100260022|-|-|AKMELIA|Perempuan|Lamongan|Jawa Timur|PKBM Merah Putih (Paket C)|Ma'had Tahfidzul Quran Al Firqoh An Najiyah
+Aktif|H100260023|-|-|ANA AZIZAH ROYYANI|Perempuan|Tulungagung|Jawa Timur|MA Muhammadiyah 9 Lamongan|PA PP Al Mizan Muhammadiyah Lamongan
+Aktif|H100260024|-|-|AYU SARTIKA|Perempuan|Enrekang|Sulawesi Selatan|Pondok|Pondok Darul Arqam Muhammadiyah Cece
+Aktif|H100260025|-|-|DZAKIA BINTANY SYAFITRI|Perempuan|Demak|Jawa Tengah|SMA Muhammadiyah 6 Surakarta|-
+Aktif|H100260026|-|-|HANIFA LEVI KHOIRUNISSA|Perempuan|Blitar|Jawa Timur|MA Ummul Akhyar Tulungagung|Pesantren Tahfidz Maskanul Huffadz
+Aktif|H100260027|-|-|HANIFA MALIKA BALQIS|Perempuan|Lampung Selatan|Lampung|SMA Plus Muhammadiyah Natar|Pontrenmu Darul Arqom Natar
+Aktif|H100260028|-|-|INTAN MUAJAH SALMA|Perempuan|Garut|Jawa Barat|SMAS Plus Al-Furqon Cibiuk|PP Al-Furqon MBS Cibiuk
+Aktif|H100260029|-|-|LATIFATUZ ZAHRO|Perempuan|Lampung Tengah|Lampung|SMAS Muhammadiyah 1 Pekalongan Lampung Timur|Ponpes Aisyiyah Imadul Bilad Kota Metro
+Aktif|H100260030|-|-|LUCY ZHABRINA AZHARI|Perempuan|Nganjuk|Jawa Timur|SMK Muhammadiyah 2 Nganjuk|PPTQ Nurul Qur'an 'Aisyiyah Nganjuk
+Aktif|H100260031|-|-|MUTHIA RISA ATTAQIAH|Perempuan|Bandung|Jawa Barat|MAS PPI 67 Benda Kota Tasikmalaya|Pesantren PPI 67 Benda Kota Tasikmalaya
+Aktif|H100260032|-|-|NAFISATUL MAKNUN|Perempuan|Jepara|Jawa Tengah|Ponpes Islam Al-Muttaqin Jepara|Ponpes Islam Al-Muttaqin Jepara
+Aktif|H100260033|-|-|NAVALA DESTA FANY|Perempuan|Demak|Jawa Tengah|MA Ma'ahid|PP MA Ma'ahid
+Aktif|H100260034|-|-|QAISYHA ZULFA|Perempuan|Kota Depok|Jawa Barat|MAS Darul Arqam Muhammadiyah Depok|PP Muhammadiyah Darul Arqam Depok
+Aktif|H100260035|-|-|RAHMA NUR ADILA|Perempuan|Seluma|Bengkulu|MAS Al-Hasanah Bengkulu Tengah|Ponpes Al-Hasanah Bengkulu Tengah
+Aktif|H100260036|-|-|RIZKA AWALIA ERSYAH|Perempuan|Mandailing Natal|Sumatera Utara|MA 05 KH Ahmad Dahlan Sipirok|PP KH. Ahmad Dahlan Sipirok
+Aktif|H100260037|-|-|SALMA AULIA MUMTAZ|Perempuan|Tegal|Jawa Tengah|MA Muhammadiyah Ahmad Dahlan|PP Muhammadiyah Ahmad Dahlan
+Aktif|H100260038|-|-|SITI PATIMAH AZZAHRA|Perempuan|Lombok Timur|Nusa Tenggara Barat|PP Al-Kautsar Al-Gontory|PP Al-Kautsar Al-Gontory
+Aktif|H100260039|-|-|SYAHLABIYAH FATIMAH AZZAHRA|Perempuan|Sukabumi|Jawa Barat|SMA Muhammadiyah 1 Kota Sukabumi|-
+Aktif|H100260040|-|-|TIYAS YEKTI HASTUTI|Perempuan|Ngawi|Jawa Timur|SMA Muhammadiyah 1 Ngawi|Ma'had Tahfidzul Qur'an Al-Amin Ngrambe
+Aktif|H100250001|I000269041|HES|ACEP MUSADAD MAULUDIN|Laki-Laki|Garut|Jawa Barat|SMAN 9 Garut|Pondok Mujahidin PCM Malangbong
+Aktif|H100250002|G000269097|PAI|AKHMAD INSAN KAMIL|Laki-Laki|Kotabaru|Kalimantan Selatan|MAS Muallimin Alabio|MBS Nurul Amin Alabio
+Aktif|H100250003|G100269020|IQT|ANQIYA ZAKI MUSHODDIQ|Laki-Laki|Cianjur|Jawa Barat|SMA Islam Kreatif Muhammadiyah Cianjur|-
+Aktif|H100250004|G100269021|IQT|BASO RIFALDI|Laki-Laki|Konawe|Sulawesi Tenggara|SMA IT Al Islah Unaaha|PPTQ Al-Imam Ashim Makassar
+Aktif|H100250005|G100269022|IQT|BAYU SETIAWAN|Laki-Laki|Ogan Komering Ilir|Sumatera Selatan|MAS Al-Manar|Muhammadiyah Boarding School
+Aktif|H100250006|G100269023|IQT|DARUL MUALLIM|Laki-Laki|Ogan Komering Ulu Timur|Sumatera Selatan|MAS MBS Al-Manar Sumatera Selatan|MBS Al-Manar
+Aktif|H100250007|I000269042|HES|DZULKIFLI ADIL IMAMIYYAH|Laki-Laki|Kota Bekasi|Jawa Barat|PP Nurussalam|MA PP Nurussalam
+Aktif|H100250008|I000269043|HES|HARRY RAHMAN|Laki-Laki|Ogan Ilir|Sumatera Selatan|MA Muhammadiyah Seri Kembang|-
+Aktif|H100250009|G100269024|IQT|M. NAUFAL AN NABHAN|Laki-Laki|Aceh Selatan|Aceh|MAT Daarut Tahfizh Al Ikhlas|Ma'had Darut Tahfizh Al Ikhlas
+Aktif|H100250010|I000269044|HES|MUHAMAD RAIHAN HAIDAR ISLAMI|Laki-Laki|Karanganyar|Jawa Tengah|MAS Tahfidzul Qur'an As Surkati Salatiga|MATIQ As Surkati Salatiga
+Aktif|H100250011|G000269098|PAI|MUHAMMAD FAQIH|Laki-Laki|Kota Depok|Jawa Barat|PP Muhammadiyah Darul Arqam Sawangan Depok|Pesantren Muhammadiyah Darul Arqam
+Aktif|H100250012|G000269099|PAI|SA'DAN AKBAR FARIZQY|Laki-Laki|Sragen|Jawa Tengah|SMK Muhammadiyah 1 Sragen|-
+Aktif|H100250013|I000269045|HES|ALYA SYIFA AZUHRI|Perempuan|Karanganyar|Jawa Tengah|SMA Muhammadiyah 1 Simo|Quranic School of Al Muthi'ah Sukoharjo
+Aktif|H100250014|G100269025|IQT|AQILAH SYAFIQAH YUSRAN|Perempuan|Sidenreng Rappang|Sulawesi Selatan|SMA Muhammadiyah Rappang|Ponpes Nurusy Syifa Al-Islamy Sidrap
+Aktif|H100250015|G100269026|IQT|DELLA RAHMADANI|Perempuan|Ogan Komering Ilir|Sumatera Selatan|MA Miftahul Huda|IQRA Institute
+Aktif|H100250016|G000269100|PAI|DIAN YASMINA FAJRI|Perempuan|Padangsidimpuan|Sumatera Utara|MAS KHA Dahlan Sipirok|PP Muhammadiyah KHA Dahlan Sipirok
+Aktif|H100250017|I000269046|HES|ELSA ARDINA FEBRIYANTI|Perempuan|Kota Depok|Jawa Barat|MA Muhammadiyah Darul Arqam Depok|Pesantren Muhammadiyah Darul Arqam
+Aktif|H100250018|I000269047|HES|ENI JUNIARTI|Perempuan|Ketapang|Kalimantan Barat|MA Ulil Albab|Hidayatullah Ketapang
+Aktif|H100250019|I000269048|HES|FATIMAH AZ ZAHRA|Perempuan|Pekalongan|Jawa Tengah|PPTQ Putri Al Husna Purbalingga|PPTQ Putri Al Husna Purbalingga
+Aktif|H100250020|G100269027|IQT|HAFSHAH NASYWANNADA|Perempuan|Pekalongan|Jawa Tengah|SMK Muhammadiyah 02 Pekalongan|IMBS Miftakhul Ulum Pekajangan
+Aktif|H100250021|I000269049|HES|HANIFATUL MUMTAZAH|Perempuan|Semarang|Jawa Tengah|MAN 1 Kota Semarang|-
+DO|H100250022|-|-|HASHIFAH|Perempuan|Sijunjung|Sumatera Barat|SMA Negeri 5 Sijunjung|-
+Aktif|H100250023|G000269101|PAI|INES KHOIRUNNISA|Perempuan|Jepara|Jawa Tengah|MA Muhammadiyah Kudus|PP Muhammadiyah Kudus
+Aktif|H100250024|G000269102|PAI|ISMAYANTI KHOIRIYAH|Perempuan|Medan|Sumatera Utara|PP KH Ahmad Dahlan Sipirok|PP KH Ahmad Dahlan Sipirok
+Aktif|H100250025|G000269103|PAI|JAYYEEDA SELMA LADYTIA KHAN|Perempuan|Kediri|Jawa Timur|MA Al-Mukmin Ngruki|Pondok Al-Mukmin Ngruki Sukoharjo
+Aktif|H100250026|I000269050|HES|KHANSA' KHARIYAH|Perempuan|Karanganyar|Jawa Tengah|MA At-Taqwa|Madrasah Putri At-Taqwa
+Aktif|H100250027|I000269051|HES|NAYLA INAYAH|Perempuan|Kota Depok|Jawa Barat|MA Darul Arqam Muhammadiyah|Darul Arqam Muhammadiyah
+Aktif|H100250028|I000269052|HES|NURANI INTAN AULIA|Perempuan|Kudus|Jawa Tengah|Ma'had Riyadhul Qur'an Bae Kudus|Ma'had Riyadhul Qur'an Bae Kudus
+Aktif|H100250029|G100269028|IQT|RIA KHOIRIYAH|Perempuan|Lampung Selatan|Lampung|SMA Muhammadiyah 1 Candipuro|PP MBS Cintamulya
+Aktif|H100250030|G100269029|IQT|SAHL KASIH FULANNAH|Perempuan|Kota Blitar|Jawa Timur|Pondok Pesantren|Imam Syafi'ie Tulungagung
+Aktif|H100250031|I000269053|HES|SALMA AULIA|Perempuan|Blitar|Jawa Timur|Ma'had Imam Syafi'i Tulungagung|PP Imam Syafi'i Tulungagung
+Aktif|H100250032|G000269104|PAI|SYAMMA HANIYA AZIZAH|Perempuan|Sragen|Jawa Tengah|SMA Muhammadiyah 2 Gemolong|Ma'had Aisyiyah Tahfidzul Qur'an
+Aktif|H100250033|G000269105|PAI|TSAQIFA TAZKYATUN NAFISA|Perempuan|Klaten|Jawa Tengah|SMA Muhammadiyah 1 Klaten|PPTQ Griya Qur'an 3
+Aktif|H100240001|G000259191|PAI|ABDULLAH TSAQIF IMTIYAZI|Laki-Laki|Sukoharjo|Jawa Tengah|SMA Muhammadiyah Pontren Imam Syuhodo|PP Modern Imam Syuhodo
+Aktif|H100240002|G000259142|PAI|AHMAD MUWAFFIQUL CHOIR|Laki-Laki|Lamongan|Jawa Timur|SMA Muhammadiyah 2 Mojoagung Jombang|MBS Jazaul Ihsan Jombang
+Aktif|H100240003|G100259035|IQT|AHMAD RIDHO AL HUAIDA|Laki-Laki|Lampung Selatan|Lampung|PP Muhammadiyah Ahmad Dahlan Candipuro|PP Muhammadiyah Ahmad Dahlan Candipuro
+Aktif|H100240004|I000259079|HES|AKMAL MUHAJIR RAYADINATA|Laki-Laki|Kota Banda Aceh|Aceh|SMA Darul Qur'an Aceh|Ponpes Darul Qur'an Aceh (DQA)
+Aktif|H100240005|I000259080|HES|AL FADHLIL RAIHAN YUNAN|Laki-Laki|Boyolali|Jawa Tengah|PKBM Cahaya Rejeki (Paket C)|Al Fitrah Qur'an School
+Aktif|H100240006|G000259143|PAI|ALFARABI|Laki-Laki|Ngawi|Jawa Timur|MAN 3 Ngawi|-
+Aktif|H100240007|G100259075|IQT|ANDI FADEL FARHAT|Laki-Laki|Kolaka|Sulawesi Tenggara|MA Darul Arqam Tolowe Ponre Waru|Ponpes Darul Arqam Tolowe Ponre Waru
+Aktif|H100240008|G100259036|IQT|FARHAN SHIDDIQ|Laki-Laki|Aceh Selatan|Aceh|MAS Baitul Arqam Aceh Besar|PP Baitul Arqam Aceh Besar
+Aktif|H100240009|G000259144|PAI|FARID ULUMUDIN|Laki-Laki|Temanggung|Jawa Tengah|MA Al-Mu'min Muhammadiyah Tembarak|PP Al-Mu'min Muhammadiyah Tembarak
+Aktif|H100240010|G000259192|PAI|HAMMAM ALGHAZY|Laki-Laki|Jepara|Jawa Tengah|SMA Muhammadiyah 02 Mayong|PP Modern Asy-Syifa' Muhammadiyah Blimbingrejo
+Aktif|H100240011|I000259081|HES|IKHWAN MURAQABATULLAH SITUMORANG|Laki-Laki|Kota Subulussalam|Aceh|MAT Daarut Tahfiz Al-Ikhlas|Ma'had Daarut Tahfiz Al-Ikhlas
+Aktif|H100240012|G100259051|IQT|MIFTAKHUL HUDA|Laki-Laki|Lampung Timur|Lampung|SMA Muhammadiyah 1 Way Jepara|Potrenmu Al Arqam Way Jepara
+Aktif|H100240013|G100259037|IQT|MOHAMMAD HASIM MUZAKI|Laki-Laki|Kota Tegal|Jawa Tengah|SMK 2 PPMM Subulussalam Kota Tegal|PPMM Subulussalam Kota Tegal
+Aktif|H100240014|I000259082|HES|MUHAMMAD FAHRI FIRDAUS|Laki-Laki|Kota Depok|Jawa Barat|MA Muhammadiyah Darul Arqom Depok|PP Muhammadiyah Darul Arqom Depok
+Aktif|H100240015|I000259083|HES|MUHAMMAD FAISAL DWI RIFQI|Laki-Laki|Banjar|Kalimantan Selatan|SMA Muhammadiyah Karang Intan|-
+Aktif|H100240016|G000259145|PAI|MUHAMMAD FAOZAN SYIFAUR RAHMAN|Laki-Laki|Brebes|Jawa Tengah|MAS Muhammadiyah Ahmad Dahlan|PP Muhammadiyah Ahmad Dahlan Tegal
+Aktif|H100240017|G000259146|PAI|MUHAMMAD FARHAN|Laki-Laki|Ogan Ilir|Sumatera Selatan|MA Muhammadiyah Seri Kembang|-
+Aktif|H100240018|G000259147|PAI|MUHAMMAD FATHIR AL KAUTSAR|Laki-Laki|Jombang|Jawa Timur|SMA Muhammadiyah 1 Jombang|Muhammadiyah Boarding School
+Aktif|H100240019|I000259084|HES|MUHAMMAD HASBI ASHSHIDIQI|Laki-Laki|Barito Timur|Kalimantan Tengah|MA Mu'allimin Muhammadiyah Alabio|MBS Nurul Amin Alabio
+Aktif|H100240020|G000259148|PAI|MUHAMMAD ILHAM PRATAMA|Laki-Laki|Ogan Komering Ilir|Sumatera Selatan|MA Miftahul Huda Tugu Agung|-
+Aktif|H100240021|I000259085|HES|RADIF AHSAN ALJUNDI|Laki-Laki|Aceh Besar|Aceh|MAS Daaruth Tahfiz|Ma'had Daarut Tahfizh Al-Ikhlas Aceh Besar
+Aktif|H100240022|G100259038|IQT|UNAISE ALBUNAYYA|Laki-Laki|Lombok Timur|Nusa Tenggara Barat|SMA MBS Selong|PP MBS Selong
+Aktif|H100240023|G000259149|PAI|WAHYU SYAHPUTRA PANE|Laki-Laki|Nias Selatan|Sumatera Utara|MAS Bahrul Ulum|-
+Aktif|H100240024|G100259039|IQT|WILDAN AHSAN ZUFAR|Laki-Laki|Tangerang|Banten|MA Darul Ulum|Ponpes Darul Ulum
+Aktif|H100240025|G100259040|IQT|AISYAH HEBA SONIA MUNA|Perempuan|Boyolali|Jawa Tengah|Jajar Islamic Center (JIC) Surakarta|Jajar Islamic Center (JIC) Surakarta
+Aktif|H100240026|G000259150|PAI|ARSY SEKAR KEMUNING|Perempuan|Tegal|Jawa Tengah|MA Muhammadiyah Ahmad Dahlan Tegal|PP Muhammadiyah Ahmad Dahlan Tegal
+Aktif|H100240027|G000259151|PAI|ASTYRA GITA KINANTI|Perempuan|Tegal|Jawa Tengah|MA Muhammadiyah Ahmad Dahlan|PP Muhammadiyah Ahmad Dahlan Tegal
+Aktif|H100240028|G000259152|PAI|AULIA NIDA'UL HUSNA|Perempuan|Sukoharjo|Jawa Tengah|SMK Muhammadiyah Watukelir|PPTQ Muhammadiyah Atmo Wahjono
+Aktif|H100240029|G100259041|IQT|BILQIS NIDAUL KHAIR DAULAY|Perempuan|Kota Medan|Sumatera Utara|SMA MBS Yogyakarta|MBS Yogyakarta
+Aktif|H100240030|G100259042|IQT|CHIKMAYATUL AULIA|Perempuan|Boyolali|Jawa Tengah|SMK Muhammadiyah 2 Andong|-
+Aktif|H100240031|I000259086|HES|CHOIRIL AMIRAH FARIDA|Perempuan|Magelang|Jawa Tengah|SMA Muhammadiyah Pakem|-
+Aktif|H100240032|G000259153|PAI|FARISYA NISFUL A QONITATUN|Perempuan|Sukoharjo|Jawa Tengah|SMK Muhammadiyah Watu Kelir|PPTQ Muhammadiyah Atmo Wahyono
+Aktif|H100240033|G100259043|IQT|FITRIA LATIFAH|Perempuan|Blitar|Jawa Timur|PKBM Imam Syafi'i Tulungagung|Pondok Imam Syafi'i Tulungagung
+Aktif|H100240034|G100259044|IQT|HASNA SARAH NUR ROFI'AH|Perempuan|Garut|Jawa Barat|SMA Plus Muhammadiyah Cibiuk Garut|PP Al Furqan MBS
+Aktif|H100240035|G100259077|IQT|I YUKI JASMINE ISTIYA'UL ROFIQOH|Perempuan|Wonogiri|Jawa Tengah|MA Qoryatul Qur'an|PPTQ Qoryatul Qur'an
+Aktif|H100240036|G000259154|PAI|IKHYAUL AINIA|Perempuan|Lamongan|Jawa Timur|SMA Muhammadiyah 1 Babat|LKSA Panti Asuhan Putri Aisyiyah Cab. Babat
+Aktif|H100240037|G100259045|IQT|INTAN ZAKIAH DAROJAH|Perempuan|Karanganyar|Jawa Tengah|SMA Muhammadiyah Pontren Imam Syuhodo|Imam Syuhodo
+Aktif|H100240038|G100259046|IQT|NAILAH MAJID|Perempuan|Lampung Tengah|Lampung|SMA Muhammadiyah 1 Pekalongan|PP Aisyiyah Imadul Bilad Kota Metro
+Aktif|H100240039|I000259087|HES|NAZIHA ARIFIYA SALSABILA|Perempuan|Magelang|Jawa Tengah|MAS Anwar Futuhiyah|PP Khoiro Ummah Yogyakarta
+Aktif|H100240040|G100259047|IQT|NURUL RAMADHANI|Perempuan|Bantul|DI Yogyakarta|Pondok|PPM MBS Pleret
+Aktif|H100240041|G100259048|IQT|RAHAFA TSABITAH|Perempuan|Nganjuk|Jawa Timur|SMA Muhammadiyah 1 Nganjuk|PPTQ Nurul Qur'an 'Aisyiyah Nganjuk
+Aktif|H100240042|G100259049|IQT|RAISSATUNNISA LUTHFIAH|Perempuan|Banjarnegara|Jawa Tengah|SKB Banjarnegara|PPMTQ Andalusia Banjarnegara
+Aktif|H100240043|G100259050|IQT|SABRINA FIKAYATUL AMIN|Perempuan|Rokan Hilir|Riau|MA Tahfidz Rokan Hulu|Islamic Center Rokan Hulu
+Aktif|H100240044|G000259155|PAI|SALMA NABILAH RAMADHANI|Perempuan|Seluma|Bengkulu|MA Al-Kautsar Kota Banjar Jabar|Ponpes Al-Kautsar Kota Banjar Jabar
+Aktif|H100240045|G000259193|PAI|SEPTI WIDYA NENGTIAS|Perempuan|Ngawi|Jawa Timur|SMA Muhammadiyah 2 Ngawi|MBS Mas Mansyur Ngawi
+Aktif|H100240046|I000259088|HES|SYAAKIRA FARRAH AINA MARDHIYAH|Perempuan|Bandung|Jawa Barat|MA Al-Ghozali|-
+Aktif|H100240047|I000259089|HES|ZAHFA ALMEDINA|Perempuan|Lampung Timur|Lampung|MA Muhammadiyah 1 Purbolinggo|PP Muhammadiyah Darul Hikmah
+Aktif|H100240048|G100259076|IQT|ZAHIRAH RIZKI FUADI|Perempuan|Kota Samarinda|Kalimantan Timur|MA PERSIS II Bangil|PP PERSIS Bangil
+Aktif|H100230001|I000249113|HES|ABD. MUGGAFAR A. SAUBADA|Laki-Laki|Pacitan|Jawa Timur|SMA Muhammadiyah Pacitan|-
+Aktif|H100230002|G100249044|IQT|ABDURRAHMAN MUZAKI|Laki-Laki|Ketapang|Kalimantan Barat|SMAN 1 Tambun Selatan|PP Zaid Bin Tsaabit
+Aktif|H100230003|G100249045|IQT|AZKIYAL MAKMUN|Laki-Laki|Lampung Selatan|Lampung|MA Muhammadiyah Metro|Pontrenmu At-Tanwir Metro
+Aktif|H100230004|G000249179|PAI|BAYU RAHMAT SETIYO|Laki-Laki|Lampung Tengah|Lampung|SMA Muhammadiyah 1 Pekalongan Lampung Timur|PP Kuliatul Mu'alimin li Tahfidzil Qur'an
+Aktif|H100230005|G100249046|IQT|BRAMA FIRMAN GHANY|Laki-Laki|Garut|Jawa Barat|SMA Plus Al-Furqon Cibiuk Garut|PP Al-Furqon MBS Cibiuk Garut
+Aktif|H100230006|I000249114|HES|GANDI TEGUH ARDIANSYAH|Laki-Laki|Sijunjung|Sumatera Barat|SMAN 5 Sijunjung|-
+Aktif|H100230007|I000249115|HES|HILMI JUAN ATTAQI|Laki-Laki|Bandung|Jawa Barat|SMA 1 Soreang Bandung|-
+Aktif|H100230008|G100249047|IQT|IBNU IHSAN|Laki-Laki|Garut|Jawa Barat|SMA Muhammadiyah Cibiuk|Ponpes Miftahul Ulum Muhammadiyah Cibiuk
+Aktif|H100230009|I000249116|HES|KEMAL ALFAYYEEDH|Laki-Laki|Luwu|Sulawesi Selatan|PP Al-Iman Uluale|PP Al-Iman Uluale Sidrap
+DO|H100230010|-|-|MOH. HASAN ASARI|Laki-Laki|Bojonegoro|Jawa Timur|SMA Muhammadiyah 1 Babat|-
+Aktif|H100230011|I000249117|HES|MUHAMMAD ABID NURUDDIN|Laki-Laki|Tuban|Jawa Timur|MAM 2 Pondok Modern Paciran|Pondok Modern Paciran
+Aktif|H100230012|I000249118|HES|MUHAMMAD ADIB ROSYADI|Laki-Laki|Sukoharjo|Jawa Tengah|SMA Muhammadiyah Al Kautsar PK Kartasura|-
+Aktif|H100230013|I000249119|HES|MUHAMMAD ARIF FADHILLAH|Laki-Laki|Brebes|Jawa Tengah|PKBM Harapan Kita Boyolali|PP Islam Darusy Syahadah Boyolali
+Aktif|H100230014|I000249120|HES|MUHAMMAD FAHRUDIN ADI SANJAYA|Laki-Laki|Blitar|Jawa Timur|Akademi Qur'an Fahmi Idris|Akademi Qur'an Fahmi Idris
+Aktif|H100230015|I000249121|HES|MUHAMMAD FAIQ ALHISYAM ZULKARNAEN|Laki-Laki|Malang|Jawa Timur|MA & Pondok Daarul Ukhuwwah|PP Daarul Ukhuwwah Pakis Malang
+Aktif|H100230016|G100249048|IQT|MUHAMMAD FAQIH ZAIN|Laki-Laki|Pekalongan|Jawa Tengah|SMA IT Fathan Mubina|PP Fathan Mubina
+Aktif|H100230017|I000249122|HES|MUHAMMAD FIKRI KURNIAWAN|Laki-Laki|Lampung Timur|Lampung|MA Muhammadiyah Metro|PP Muhammadiyah At-Tanwir Metro
+Aktif|H100230018|G000249180|PAI|MUHAMMAD FITRIYANOR|Laki-Laki|Kapuas|Kalimantan Tengah|SMA Muhammadiyah Kuala Kapuas|-
+Aktif|H100230019|G100249049|IQT|MUH HIDAYAT Y|Laki-Laki|Polewali Mandar|Sulawesi Barat|PPS Ahlul Qur'an|Ahlul Qur'an Polewali Mandar
+Aktif|H100230020|G000249181|PAI|MUHAMMAD KHOIRUL IBADY PINEM|Laki-Laki|Karo|Sumatera Utara|Pondok|Pondok Muhammadiyah Kwala Madu Langkat
+Aktif|H100230021|G000249182|PAI|MUHAMMAD NOUVAL ALVARO|Laki-Laki|Kampar|Riau|PP Anshor Al Sunnah|PP Anshor Al Sunnah
+Aktif|H100230022|I000249125|HES|MUHAMMAD NUR ISHOLATTUDIN|Laki-Laki|Pekalongan|Jawa Tengah|SMK Muhammadiyah 05 Darul Arqom Patean|Darul Arqom Patean Kendal
+Aktif|H100230023|G100249054|IQT|MUHAMMAD PERDAMA|Laki-Laki|Bekasi|Jawa Barat|PP Nurussalam Putra|PP Nurussalam Putra
+Aktif|H100230024|G100249050|IQT|MUHAMMAD RELUNG FAZLUR ROHMAN|Laki-Laki|Lamongan|Jawa Timur|MA Muhammadiyah 1 Paciran|Ponpes Karangasem Muhammadiyah Paciran
+Aktif|H100230025|G100249051|IQT|MUHAMMAD YUSUF ARIFUDDIN|Laki-Laki|Pemalang|Jawa Tengah|IMBS Miftahul Ulum Pekajangan|IMBS Miftahul Ulum Pekajangan
+Aktif|H100230026|I000249123|HES|MUHAMMAD ZEIN|Laki-Laki|Banjar|Kalimantan Selatan|MA Hidayatullah Martapura|-
+Aktif|H100230027|G000249183|PAI|NASHIRUDDIN AMIN|Laki-Laki|Pasaman Barat|Sumatera Barat|MAS Darul Muwahhidin Padang Panjang|Darul Muwahhidin Padang Panjang
+Aktif|H100230028|G100249052|IQT|RAFLI GIBRANSYAH|Laki-Laki|Indramayu|Jawa Barat|SMAN 1 Sliyeg|-
+Aktif|H100230029|G000249184|PAI|RIO RAMADHON|Laki-Laki|Belitung Timur|Bangka Belitung|Ponpes Tahfidz Daarulhikmah|Ponpes Daarulhikmah
+Aktif|H100230030|I000249124|HES|RIZQI ADHITYA TIHURUA|Laki-Laki|Maluku Tengah|Maluku|SMK IT Raudhatul Uluum Subang|Ponpes Al Ikhlas Raudhatul Uluum Subang
+Aktif|H100230031|G100249053|IQT|ROHIID SHUBHI ATTAHAANII|Laki-Laki|Kulon Progo|DI Yogyakarta|SMK Darul Ulum Muhammadiyah Galur|PP Darul Ulum Muhammadiyah Galur
+Aktif|H100230032|G000249185|PAI|SYARIF|Laki-Laki|Pasangkayu|Sulawesi Barat|SMAN 6 Palu|Palu
+Aktif|H100230033|G000249186|PAI|THOLHAH HANANAH|Laki-Laki|Tapanuli Selatan|Sumatera Utara|PP Muhammadiyah KH. Ahmad Dahlan Sipirok|-
+DO|H100220001|G100239054|IQT|A. MUMTAZ MURTADHA NB|Laki-Laki|Palembang|Sumatera Selatan|MAN 2 Palembang|-
+DO|H100220002|-|-|ABUL HASAN AL RASYID|Laki-Laki|Bekasi|Jawa Barat|PP Nurussalam Ciamis|Nurussalam
+Aktif|H100220003|I000239070|HES|AHMAD SATRIO IMADUDDIN|Laki-Laki|Kendal|Jawa Tengah|MA Muhammadiyah Kudus|PP Muhammadiyah Kudus
+Aktif|H100220004|I000239073|HES|ALDIANSYAH|Laki-Laki|Sumbawa|Nusa Tenggara Barat|Pondok|Abu Bakar Al Islamy
+Aktif|H100220005|G100239048|IQT|AMTSAL AJHAR|Laki-Laki|Tasikmalaya|Jawa Barat|SMA Muhammadiyah Rawa|-
+DO|H100220006|G000239139|PAI|AULIA ALDI PRABOWO|Laki-Laki|Tanah Laut|Kalimantan Selatan|PKBM Banua Banjar|-
+Aktif|H100220007|G100239046|IQT|BASO MUH WAHIDIN|Laki-Laki|Konawe|Sulawesi Tenggara|PPTQ Al Imam Ashim Makassar|MATQ Al-Imam Ashim Makassar
+Aktif|H100220008|G100239053|IQT|DAVA AGUS PRATAMA PUTRA|Laki-Laki|Banjarnegara|Jawa Tengah|MA Al-Mu'min Muhammadiyah Tembarak|PP Al-Mu'min Muhammadiyah Tembarak
+Aktif|H100220009|I000239075|HES|DIMAS AMRIL FIRMANSYAH|Laki-Laki|Jepara|Jawa Tengah|MA Muhammadiyah Kudus|PP Muhammadiyah Kudus
+Aktif|H100220010|G100239045|IQT|DWI KURNIADI|Laki-Laki|Lamongan|Jawa Timur|MA Muhammadiyah 09 Lamongan|PP Al-Mizan Muhammadiyah Lamongan
+Aktif|H100220011|I000239071|HES|HIBATULLOH AL MUBAROK|Laki-Laki|Lampung Selatan|Lampung|MA Muhammadiyah Batuliman|PP Muhammadiyah Ahmad Dahlan Candipuro
+Aktif|H100220012|G000239148|PAI|IBNU QOYYIM AL JAUZIYAH|Laki-Laki|Ngawi|Jawa Timur|MA Al Islam Jamsaren Surakarta|-
+Aktif|H100220013|G000239142|PAI|IRSYAD HAKIM AFFANDI|Laki-Laki|Mimika|Papua|PP Al Mizan Muhammadiyah Lamongan|PP Al Mizan Muhammadiyah Lamongan
+Aktif|H100220014|G000239144|PAI|M. FADLAN ANSORI|Laki-Laki|Banjar|Kalimantan Selatan|SMA Muhammadiyah Martapura|-
+Aktif|H100220015|G000239146|PAI|M. HASBI ASHSHIDDIQI|Laki-Laki|Banjarmasin|Kalimantan Selatan|MAN 1 Banjarmasin|-
+DO|H100220016|G100239055|IQT|MOCH RISYAD ABDILLAH|Laki-Laki|Tasikmalaya|Jawa Barat|SMA Muhammadiyah Singaparna|PP Riyadul Qur'an
+Aktif|H100220017|I000239072|HES|MOCHAMMAD MUMTAZ RAIS TAMAMI|Laki-Laki|Tabalong|Kalimantan Selatan|PP Muadalah Sulaimaniyah|-
+Aktif|H100220018|I000239069|HES|MOH. INDRA HERMAWAN|Laki-Laki|Banjarbaru|Kalimantan Selatan|SMA Muhammadiyah Martapura|-
+Aktif|H100220019|G100239048|IQT|MUHAMMAD ARYA KAUTSAR|Laki-Laki|Bireuen|Aceh|MA Muhammadiyah Bireuen|Dayah Muhammadiyah Boarding School Bireuen
+Aktif|H100220020|G000239149|PAI|MUHAMMAD AZIBSYAH|Laki-Laki|Mandailing Natal|Sumatera Utara|SMK Muhammadiyah 14 Siabu|-
+Aktif|H100220021|G000239051|IQT|MUHAMMAD FIKRI AZKA|Laki-Laki|Lampung Timur|Lampung|MA Al Muhsin|PP Al Muhsin
+Aktif|H100220022|G000239150|PAI|MUHAMMAD IQBAL|Laki-Laki|Sumbawa|Nusa Tenggara Barat|Abu Bakar Is|-
+DO|H100220023|G100239050|IQT|MUHAMMAD RIF'AT SA'DAN|Laki-Laki|Temanggung|Jawa Tengah|MA Al-Mu'min Muhammadiyah Tembarak|PP Al-Mu'min Muhammadiyah Tembarak
+Aktif|H100220024|I000239074|HES|MUHAMMAD THORIQ AL FARISI|Laki-Laki|Sukoharjo|Jawa Tengah|MAN 1 Surakarta|-
+Aktif|H100220025|G100239052|IQT|NAHRUL FIRDAUS ACHMADIKA|Laki-Laki|Tarakan|Kalimantan Utara|SMA MBS Tarakan|PP Daarul Ilmi Muhammadiyah Tarakan
+Aktif|H100220026|G000239147|PAI|NURUL FAHRI FRIYANDA|Laki-Laki|Magelang|Jawa Tengah|SMA Muhammadiyah Borobudur|PP Daarul Hikmah Sabrangrowo
+Aktif|H100220027|I000239076|HES|OYAN SUGIYANTO|Laki-Laki|Lombok Timur|Nusa Tenggara Barat|SMA MBS Selong Lombok Timur|MBS Selong Lombok Timur NTB
+DO|H100220028|G000239143|PAI|PEMAS|Laki-Laki|Ogan Komering Ilir|Sumatera Selatan|SMA Muhammadiyah Tulung Selapan|-
+DO|H100220029|G000239141|PAI|RAHMAT NUR|Laki-Laki|Polewali Mandar|Sulawesi Barat|SMK PP Modern Al-Ikhlash|PPM Al Ikhlash Lampoko Polman
+Aktif|H100220030|G100239047|IQT|RIZKY ALDIANSYAH|Laki-Laki|Rokan Hilir|Riau|Pondok|PP Modern Muhammadiyah Nawawi Djamil Duri
+Aktif|H100220031|G000239145|PAI|ROSTAMAJI|Laki-Laki|Sumbawa|Nusa Tenggara Barat|SMA Muhammadiyah Sumbawa Besar|-
+Aktif|H100220032|G000239140|PAI|WILDAN ISKANDAR PURNA ATMAJA|Laki-Laki|Ngawi|Jawa Timur|MAS Muhammadiyah Tempurrejo|-
+    `.trim();
+
+    /**
+     * =========================================================================
+     * 2. DATA PARSING & NORMALIZATION (186 MAHASANTRI)
+     * =========================================================================
+     */
+    function normalizeProvinsi(prov) {
+      const p = (prov || '').trim();
+      const map = {
+        'NTB': 'Nusa Tenggara Barat',
+        'NTT': 'Nusa Tenggara Timur',
+        'DIY': 'DI Yogyakarta',
+        'D.I.Yogyakarta': 'DI Yogyakarta',
+        'D.I. Yogyakarta': 'DI Yogyakarta',
+        'Sumatra Selatan': 'Sumatera Selatan',
+        'Kep. Bangka Belitung': 'Bangka Belitung',
+      };
+      return map[p] || p;
+    }
+
+    const ALL_DATA = RAW_DATA.split('\n')
+      .map((line) => line.trim())
+      .filter((line) => line.length > 0)
+      .map((line, idx) => {
+        const parts = line.split('|');
+        const nimPondok = (parts[1] || '').trim();
+        const angkatan = nimPondok.length >= 6 ? '20' + nimPondok.substring(4, 6) : '-';
+        return {
+          id: idx + 1,
+          status: (parts[0] || '-').trim(),
+          nimPondok,
+          nimUms: (parts[2] || '-').trim(),
+          prodi: (parts[3] || '-').trim(),
+          nama: (parts[4] || '-').trim(),
+          jk: (parts[5] || '-').trim(),
+          kabKota: (parts[6] || '-').trim(),
+          provinsi: normalizeProvinsi(parts[7]),
+          sekolah: (parts[8] || '-').trim(),
+          pondok: (parts[9] || '-').trim(),
+          angkatan,
+        };
+      });
+
+    // Quick lookup map by NIM Pondok
+    const MAHASANTRI_BY_NIM = {};
+    ALL_DATA.forEach((m) => {
+      MAHASANTRI_BY_NIM[m.nimPondok] = m;
+    });
+
+    /**
+     * =========================================================================
+     * 3. DUMMY DATASET PRESTASI AKADEMIK & NON-AKADEMIK DI UMS (35 DATA)
+     * Terhubung langsung via nimPondok ke ALL_DATA (186 Mahasantri)
+     * =========================================================================
+     */
+    const PRESTASI_DATA = [
+      { id: 1, nimPondok: 'H100220010', kategori: 'Akademik', peringkat: 'Juara 1', tingkat: 'Nasional', tahun: '2024', judul: "MTQ Mahasiswa Nasional (MTQMN) Hifzhil Qur'an 30 Juz", penyelenggara: 'Kemendikbudristek RI' },
+      { id: 2, nimPondok: 'H100240025', kategori: 'Akademik', peringkat: 'Juara 1', tingkat: 'Nasional', tahun: '2025', judul: "MTQ Mahasiswa Nasional Cabang Hifzhil Qur'an 20 Juz Putri", penyelenggara: 'Kemendikbudristek RI' },
+      { id: 3, nimPondok: 'H100220024', kategori: 'Akademik', peringkat: 'Penghargaan', tingkat: 'Internasional', tahun: '2025', judul: 'Best Paper Konferensi Internasional Studi Islam (ICIS)', penyelenggara: 'Fakultas Agama Islam UMS' },
+      { id: 4, nimPondok: 'H100220003', kategori: 'Akademik', peringkat: 'Juara 1', tingkat: 'Nasional', tahun: '2025', judul: 'Debat Hukum Ekonomi Syariah Nasional (HES Fair)', penyelenggara: 'UIN Sunan Kalijaga Yogyakarta' },
+      { id: 5, nimPondok: 'H100220012', kategori: 'Akademik', peringkat: 'Juara 1', tingkat: 'Nasional', tahun: '2025', judul: 'Lomba Microteaching PAI Tingkat Nasional', penyelenggara: 'Asosiasi Prodi PAI PTMA' },
+      { id: 6, nimPondok: 'H100220019', kategori: 'Non-Akademik', peringkat: 'Juara 1', tingkat: 'Nasional', tahun: '2024', judul: 'Medali Emas Kejuaraan Nasional Tapak Suci UMS Cup', penyelenggara: 'UKM Tapak Suci UMS' },
+      { id: 7, nimPondok: 'H100220025', kategori: 'Non-Akademik', peringkat: 'Delegasi', tingkat: 'Internasional', tahun: '2025', judul: 'Delegasi KKN Internasional Muhammadiyah (Thailand)', penyelenggara: 'KUI & LPPM UMS' },
+      { id: 8, nimPondok: 'H100220030', kategori: 'Akademik', peringkat: 'Juara 2', tingkat: 'Nasional', tahun: '2023', judul: "Musabaqah Karya Tulis Ilmiah Al-Qur'an (KTIQ)", penyelenggara: 'MTQMN Universitas Brawijaya' },
+      { id: 9, nimPondok: 'H100230005', kategori: 'Akademik', peringkat: 'Juara 1', tingkat: 'Nasional', tahun: '2025', judul: 'Debat Bahasa Arab (Munazharah) PTMA Nasional', penyelenggara: 'Forum PTMA Indonesia' },
+      { id: 10, nimPondok: 'H100230011', kategori: 'Akademik', peringkat: 'Juara 1', tingkat: 'Universitas', tahun: '2025', judul: 'Mahasiswa Berprestasi (Mawapres) 1 FAI UMS', penyelenggara: 'Dekanat FAI UMS' },
+      { id: 11, nimPondok: 'H100230015', kategori: 'Akademik', peringkat: 'Juara 2', tingkat: 'Nasional', tahun: '2025', judul: 'Olimpiade Hukum Ekonomi Syariah (HES) Nasional', penyelenggara: 'FoSSEI Nasional' },
+      { id: 12, nimPondok: 'H100230024', kategori: 'Akademik', peringkat: 'Juara 1', tingkat: 'Provinsi', tahun: '2024', judul: "Musabaqah Fahmil Qur'an (MFQ) Mahasiswa Jateng-DIY", penyelenggara: 'LPTQ Provinsi Jawa Tengah' },
+      { id: 13, nimPondok: 'H100230027', kategori: 'Akademik', peringkat: 'Penghargaan', tingkat: 'Nasional', tahun: '2025', judul: 'Lolos Pendanaan PKM-RSH (Riset Sosial Humaniora)', penyelenggara: 'Belmawa Kemendikbudristek' },
+      { id: 14, nimPondok: 'H100230007', kategori: 'Non-Akademik', peringkat: 'Juara 2', tingkat: 'Provinsi', tahun: '2025', judul: 'Panahan (Horsebow) Putra POMPROV Jawa Tengah', penyelenggara: 'BAPOMI Jawa Tengah' },
+      { id: 15, nimPondok: 'H100230021', kategori: 'Non-Akademik', peringkat: 'Juara 1', tingkat: 'Nasional', tahun: '2024', judul: 'Lomba Film Pendek Dakwah Mahasiswa PTM/A', penyelenggara: 'MPI PP Muhammadiyah' },
+      { id: 16, nimPondok: 'H100230031', kategori: 'Non-Akademik', peringkat: 'Juara 1', tingkat: 'Nasional', tahun: '2025', judul: "Kaligrafi Kontemporer (Khattil Qur'an) MTQ Mahasiswa", penyelenggara: 'Universitas Negeri Malang' },
+      { id: 17, nimPondok: 'H100230012', kategori: 'Non-Akademik', peringkat: 'Juara 3', tingkat: 'Internasional', tahun: '2024', judul: 'Pencak Silat Internasional Yogyakarta Championship', penyelenggara: 'IPSI & Kemenpora RI' },
+      { id: 18, nimPondok: 'H100220014', kategori: 'Non-Akademik', peringkat: 'Juara 2', tingkat: 'Universitas', tahun: '2024', judul: 'Futsal Antar Fakultas PORSENI UMS', penyelenggara: 'BEM UMS' },
+      { id: 19, nimPondok: 'H100240029', kategori: 'Akademik', peringkat: 'Juara 1', tingkat: 'Nasional', tahun: '2026', judul: 'Debat Bahasa Arab Putri PTMA Se-Indonesia', penyelenggara: 'Universitas Muhammadiyah Yogyakarta' },
+      { id: 20, nimPondok: 'H100240004', kategori: 'Akademik', peringkat: 'Penghargaan', tingkat: 'Nasional', tahun: '2026', judul: 'Publikasi Artikel Ilmiah Terindeks Sinta 2', penyelenggara: 'Jurnal Al-Ahkam / LPPI UMS' },
+      { id: 21, nimPondok: 'H100240001', kategori: 'Akademik', peringkat: 'Juara 1', tingkat: 'Provinsi', tahun: '2025', judul: 'Lomba Karya Tulis Ilmiah (LKTI) Pendidikan Islam', penyelenggara: 'UIN Raden Mas Said Surakarta' },
+      { id: 22, nimPondok: 'H100240026', kategori: 'Akademik', peringkat: 'Juara 2', tingkat: 'Nasional', tahun: '2025', judul: 'Lomba Media Pembelajaran PAI Inovatif Nasional', penyelenggara: 'Forum Mahasiswa PAI Indonesia' },
+      { id: 23, nimPondok: 'H100240039', kategori: 'Akademik', peringkat: 'Penghargaan', tingkat: 'Universitas', tahun: '2025', judul: 'Penerima Beasiswa Prestasi Akademik UMS (IPK 3.98)', penyelenggara: 'Biro Kemahasiswaan UMS' },
+      { id: 24, nimPondok: 'H100240034', kategori: 'Non-Akademik', peringkat: 'Juara 1', tingkat: 'Nasional', tahun: '2025', judul: 'Lomba Desain Poster Dakwah Nasional', penyelenggara: 'IMM Komisariat FAI UMS' },
+      { id: 25, nimPondok: 'H100240040', kategori: 'Non-Akademik', peringkat: 'Penghargaan', tingkat: 'Universitas', tahun: '2025', judul: 'Duta Kampus UMS Kategori Favorit', penyelenggara: 'Biro Kemahasiswaan & Alumni UMS' },
+      { id: 26, nimPondok: 'H100240046', kategori: 'Non-Akademik', peringkat: 'Juara 1', tingkat: 'Provinsi', tahun: '2025', judul: 'Nasyid & Hadroh Festival Seni Islami Jateng', penyelenggara: 'Pemprov Jawa Tengah' },
+      { id: 27, nimPondok: 'H100240048', kategori: 'Non-Akademik', peringkat: 'Delegasi', tingkat: 'Internasional', tahun: '2026', judul: 'Delegasi KKN Internasional Muhammadiyah (Malaysia)', penyelenggara: 'KUI UMS' },
+      { id: 28, nimPondok: 'H100250001', kategori: 'Akademik', peringkat: 'Juara 2', tingkat: 'Nasional', tahun: '2026', judul: 'Debat Hukum Syariah Mahasiswa Nasional', penyelenggara: 'UIN Syarif Hidayatullah Jakarta' },
+      { id: 29, nimPondok: 'H100250009', kategori: 'Akademik', peringkat: 'Juara 1', tingkat: 'Universitas', tahun: '2026', judul: "Musabaqah Tilawatil Qur'an (MTQ) Mahasiswa UMS", penyelenggara: 'LDK Muhammadiyah UMS' },
+      { id: 30, nimPondok: 'H100250013', kategori: 'Akademik', peringkat: 'Juara 2', tingkat: 'Provinsi', tahun: '2026', judul: 'Lomba Esai Ekonomi Syariah Mahasiswa Jateng', penyelenggara: 'Bank Indonesia Perwakilan Solo' },
+      { id: 31, nimPondok: 'H100250017', kategori: 'Non-Akademik', peringkat: 'Juara 1', tingkat: 'Universitas', tahun: '2026', judul: 'Fotografi Jurnalistik Kampus (UMS Photo Contest)', penyelenggara: 'LPM Pabelan UMS' },
+      { id: 32, nimPondok: 'H100250025', kategori: 'Non-Akademik', peringkat: 'Juara 2', tingkat: 'Universitas', tahun: '2026', judul: 'Tenis Meja Tunggal Putri PORSENI UMS', penyelenggara: 'BEM UMS' },
+      { id: 33, nimPondok: 'H100250029', kategori: 'Non-Akademik', peringkat: 'Juara 2', tingkat: 'Provinsi', tahun: '2026', judul: 'Panahan Barebow Putri Kejuaraan Mahasiswa Jateng', penyelenggara: 'PERPANI Jawa Tengah' },
+      { id: 34, nimPondok: 'H100260001', kategori: 'Akademik', peringkat: 'Juara 1', tingkat: 'Universitas', tahun: '2026', judul: "Musabaqah Hifzhil Qur'an Mahasiswa Baru (Masta UMS)", penyelenggara: 'Panitia Masta & Pondok Shabran UMS' },
+      { id: 35, nimPondok: 'H100260021', kategori: 'Non-Akademik', peringkat: 'Juara 1', tingkat: 'Universitas', tahun: '2026', judul: 'Lomba Pidato Bahasa Arab Mahasiswa Baru UMS', penyelenggara: 'UKM Bahasa Arab UMS' },
+    ];
+
+    /**
+     * =========================================================================
+     * 4. APPLICATION STATE
+     * =========================================================================
+     */
+    const state = {
+      activeView: 'dashboard', // 'dashboard' | 'directory' | 'prestasi'
+      statsUseFiltered: false,
+      provChartMode: 'top12',
+      filters: {
+        search: '',
+        gender: 'ALL',
+        angkatan: 'ALL',
+        prodi: 'ALL',
+        status: 'ALL',
+        provinsi: 'ALL',
+      },
+      prestasiFilters: {
+        search: '',
+        kategori: 'ALL',
+        tingkat: 'ALL',
+        tahun: 'ALL',
+        gender: 'ALL',
+      },
+      sort: {
+        key: 'nimPondok',
+        dir: 'asc',
+      },
+      pagination: {
+        page: 1,
+        pageSize: 20,
+      },
+      selectedRecord: null,
+    };
+
+    // Chart.js Instances
+    let chartAngkatanInstance = null;
+    let chartProdiInstance = null;
+    let chartProvinsiInstance = null;
+    let chartPrestasiKategoriInstance = null;
+    let chartPrestasiTingkatInstance = null;
+    let chartPrestasiTahunInstance = null;
+    let toastTimer = null;
+
+    /**
+     * =========================================================================
+     * 5. UTILITY FUNCTIONS
+     * =========================================================================
+     */
+    function escapeHTML(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function showToast(message) {
+      const toastBox = document.getElementById('toastBox');
+      document.getElementById('toastMessage').textContent = message;
+      toastBox.classList.remove('hidden', 'toast-animate');
+      void toastBox.offsetWidth;
+      toastBox.classList.add('toast-animate');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toastBox.classList.add('hidden'), 2800);
+    }
+
+    function copyTextToClipboard(text) {
+      try {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.setAttribute('readonly', '');
+        textarea.style.position = 'fixed';
+        textarea.style.left = '-9999px';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        showToast('Data mahasantri berhasil disalin ke clipboard.');
+      } catch (err) {
+        showToast('Gagal menyalin data.');
+      }
+    }
+
+    function updateLiveClockWIB() {
+      const now = new Date();
+      try {
+        const fullFmt = new Intl.DateTimeFormat('id-ID', {
+          timeZone: 'Asia/Jakarta',
+          day: '2-digit',
+          month: 'short',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: false,
+        });
+        const shortFmt = new Intl.DateTimeFormat('id-ID', {
+          timeZone: 'Asia/Jakarta',
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false,
+        });
+        document.getElementById('liveClockWIB').textContent = fullFmt.format(now).replace(/\./g, ':') + ' WIB';
+        document.getElementById('drawerClockWIB').textContent = shortFmt.format(now).replace(/\./g, ':') + ' WIB';
+      } catch (e) {
+        document.getElementById('liveClockWIB').textContent = now.toLocaleTimeString('id-ID') + ' WIB';
+      }
+    }
+
+    function hasActiveDirectoryFilters() {
+      const f = state.filters;
+      return (
+        f.search.trim() !== '' ||
+        f.gender !== 'ALL' ||
+        f.angkatan !== 'ALL' ||
+        f.prodi !== 'ALL' ||
+        f.status !== 'ALL' ||
+        f.provinsi !== 'ALL'
+      );
+    }
+
+    function getFilteredData() {
+      const f = state.filters;
+      const q = f.search.trim().toLowerCase();
+
+      const filtered = ALL_DATA.filter((item) => {
+        if (f.gender !== 'ALL' && item.jk !== f.gender) return false;
+        if (f.angkatan !== 'ALL' && item.angkatan !== f.angkatan) return false;
+        if (f.prodi !== 'ALL' && item.prodi !== f.prodi) return false;
+        if (f.status !== 'ALL' && item.status !== f.status) return false;
+        if (f.provinsi !== 'ALL' && item.provinsi !== f.provinsi) return false;
+        if (q) {
+          const hay = [
+            item.nama, item.nimPondok, item.nimUms, item.kabKota,
+            item.provinsi, item.sekolah, item.pondok, item.prodi, item.angkatan
+          ].join(' ').toLowerCase();
+          if (!hay.includes(q)) return false;
+        }
+        return true;
+      });
+
+      const { key, dir } = state.sort;
+      const mult = dir === 'asc' ? 1 : -1;
+      filtered.sort((a, b) => {
+        const valA = (a[key] || '').toString().toLowerCase();
+        const valB = (b[key] || '').toString().toLowerCase();
+        if (valA < valB) return -1 * mult;
+        if (valA > valB) return 1 * mult;
+        return 0;
+      });
+
+      return filtered;
+    }
+
+    function getEnrichedPrestasi() {
+      return PRESTASI_DATA.map((p) => {
+        const m = MAHASANTRI_BY_NIM[p.nimPondok] || {
+          id: null, nama: 'Mahasantri', jk: 'Laki-Laki', prodi: '-', angkatan: '-', provinsi: '-'
+        };
+        return {
+          ...p,
+          mahasantriId: m.id,
+          nama: m.nama,
+          jk: m.jk,
+          prodi: m.prodi,
+          angkatan: m.angkatan,
+          provinsi: m.provinsi,
+        };
+      });
+    }
+
+    function getFilteredPrestasi() {
+      const f = state.prestasiFilters;
+      const q = f.search.trim().toLowerCase();
+      return getEnrichedPrestasi()
+        .filter((item) => {
+          if (f.kategori !== 'ALL' && item.kategori !== f.kategori) return false;
+          if (f.tingkat !== 'ALL' && item.tingkat !== f.tingkat) return false;
+          if (f.tahun !== 'ALL' && item.tahun !== f.tahun) return false;
+          if (f.gender !== 'ALL' && item.jk !== f.gender) return false;
+          if (q) {
+            const hay = [
+              item.nama, item.nimPondok, item.judul, item.penyelenggara,
+              item.peringkat, item.tingkat, item.kategori, item.prodi
+            ].join(' ').toLowerCase();
+            if (!hay.includes(q)) return false;
+          }
+          return true;
+        })
+        .sort((a, b) => Number(b.tahun) - Number(a.tahun) || b.id - a.id);
+    }
+
+    /**
+     * =========================================================================
+     * 6. POPULATE DROPDOWNS
+     * =========================================================================
+     */
+    function populateProvinsiDropdown() {
+      const select = document.getElementById('filterProvinsi');
+      const uniqueProv = Array.from(new Set(ALL_DATA.map((d) => d.provinsi))).sort((a, b) =>
+        a.localeCompare(b, 'id')
+      );
+      uniqueProv.forEach((prov) => {
+        const opt = document.createElement('option');
+        opt.value = prov;
+        opt.textContent = prov;
+        select.appendChild(opt);
+      });
+    }
+
+    function populateMahasantriSelectForPrestasi() {
+      const select = document.getElementById('inputPrestasiMahasantri');
+      ALL_DATA.forEach((m) => {
+        const opt = document.createElement('option');
+        opt.value = m.nimPondok;
+        opt.textContent = `${m.nimPondok} — ${m.nama} (${m.prodi !== '-' ? m.prodi : 'Angk. ' + m.angkatan})`;
+        select.appendChild(opt);
+      });
+    }
+
+    /**
+     * =========================================================================
+     * 7. RENDER DASHBOARD STATISTIK (VIEW 1)
+     * =========================================================================
+     */
+    function renderDashboard() {
+      const filtered = getFilteredData();
+      const dataset = state.statsUseFiltered ? filtered : ALL_DATA;
+
+      document.getElementById('statsFilteredCount').textContent = filtered.length;
+      document.getElementById('dashboardSubtitle').textContent = state.statsUseFiltered
+        ? `Statistik dinamis dari ${dataset.length} mahasantri sesuai filter direktori.`
+        : `Analisis menyeluruh dari seluruh ${ALL_DATA.length} mahasantri angkatan 2022–2026.`;
+
+      const total = dataset.length;
+      const aktif = dataset.filter((d) => d.status === 'Aktif').length;
+      const doCount = dataset.filter((d) => d.status === 'DO').length;
+      const putra = dataset.filter((d) => d.jk === 'Laki-Laki').length;
+      const putri = dataset.filter((d) => d.jk === 'Perempuan').length;
+      const provSet = new Set(dataset.map((d) => d.provinsi));
+      const pct = (n) => (total > 0 ? ((n / total) * 100).toFixed(1) + '%' : '0%');
+
+      document.getElementById('kpiTotal').textContent = total;
+      document.getElementById('kpiAktif').textContent = aktif;
+      document.getElementById('kpiAktifPct').textContent = `${pct(aktif)} dari total`;
+      document.getElementById('kpiDO').textContent = doCount;
+      document.getElementById('kpiDOPct').textContent = `${pct(doCount)} dari total`;
+      document.getElementById('kpiPutra').textContent = putra;
+      document.getElementById('kpiPutraPct').textContent = `${pct(putra)} mahasantri`;
+      document.getElementById('kpiPutri').textContent = putri;
+      document.getElementById('kpiPutriPct').textContent = `${pct(putri)} mahasantri`;
+      document.getElementById('kpiProvinsi').textContent = provSet.size;
+
+      renderChartAngkatan(dataset);
+      renderChartProdi(dataset);
+      renderChartProvinsi(dataset);
+    }
+
+    function renderChartAngkatan(dataset) {
+      const years = ['2022', '2023', '2024', '2025', '2026'];
+      const putraCounts = years.map((y) => dataset.filter((d) => d.angkatan === y && d.jk === 'Laki-Laki').length);
+      const putriCounts = years.map((y) => dataset.filter((d) => d.angkatan === y && d.jk === 'Perempuan').length);
+
+      const ctx = document.getElementById('chartAngkatan').getContext('2d');
+      if (chartAngkatanInstance) chartAngkatanInstance.destroy();
+
+      chartAngkatanInstance = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: years.map((y) => `Angk. ${y}`),
+          datasets: [
+            { label: 'Putra', data: putraCounts, backgroundColor: '#2F3185', borderRadius: 6, barPercentage: 0.6 },
+            { label: 'Putri', data: putriCounts, backgroundColor: '#EC4899', borderRadius: 6, barPercentage: 0.6 },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: '#1E293B',
+              padding: 10,
+              cornerRadius: 10,
+              callbacks: {
+                footer: (items) => `Total: ${items.reduce((a, b) => a + b.parsed.y, 0)} mahasantri`,
+              },
+            },
+          },
+          scales: {
+            x: { stacked: true, grid: { display: false }, ticks: { font: { family: 'Inter', size: 12, weight: '600' }, color: '#475569' } },
+            y: { stacked: true, beginAtZero: true, grid: { color: '#F1F5F9' }, ticks: { stepSize: 10, font: { family: 'Inter', size: 11 }, color: '#64748B' } },
+          },
+        },
+      });
+    }
+
+    function renderChartProdi(dataset) {
+      const categories = [
+        { key: 'IQT', short: 'IQT', color: '#2F3185' },
+        { key: 'HES', short: 'HES', color: '#1CBDB3' },
+        { key: 'PAI', short: 'PAI', color: '#FFB800' },
+        { key: '-', short: 'Belum Ada', color: '#94A3B8' },
+      ];
+      const counts = categories.map((c) => dataset.filter((d) => d.prodi === c.key).length);
+      const total = dataset.length || 1;
+
+      const ctx = document.getElementById('chartProdi').getContext('2d');
+      if (chartProdiInstance) chartProdiInstance.destroy();
+
+      chartProdiInstance = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: categories.map((c) => c.short),
+          datasets: [{ data: counts, backgroundColor: categories.map((c) => c.color), borderColor: '#FFFFFF', borderWidth: 3, hoverOffset: 8 }],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          cutout: '64%',
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: '#1E293B',
+              padding: 10,
+              cornerRadius: 10,
+              callbacks: {
+                label: (item) => ` ${item.label}: ${item.parsed} (${((item.parsed / total) * 100).toFixed(1)}%)`,
+              },
+            },
+          },
+        },
+      });
+
+      document.getElementById('prodiLegendGrid').innerHTML = categories
+        .map((c, i) => {
+          const val = counts[i];
+          const pct = dataset.length > 0 ? ((val / dataset.length) * 100).toFixed(1) : '0.0';
+          return `
+            <div class="flex items-center justify-between bg-slate-50 rounded-xl px-3 py-2 border border-slate-100">
+              <div class="flex items-center gap-2 min-w-0">
+                <span class="w-3 h-3 rounded-full shrink-0" style="background-color:${c.color}"></span>
+                <span class="font-semibold text-slate-700 truncate">${c.short}</span>
+              </div>
+              <span class="font-bold text-slate-900 tabular-nums ml-2">${val} <span class="text-[10px] font-medium text-slate-400">(${pct}%)</span></span>
+            </div>
+          `;
+        })
+        .join('');
+    }
+
+    function renderChartProvinsi(dataset) {
+      const countsMap = {};
+      dataset.forEach((d) => { countsMap[d.provinsi] = (countsMap[d.provinsi] || 0) + 1; });
+      let entries = Object.entries(countsMap).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'id'));
+      if (state.provChartMode === 'top12') entries = entries.slice(0, 12);
+
+      document.getElementById('chartProvinsiWrapper').style.height = `${Math.max(320, entries.length * 32 + 40)}px`;
+      const barColors = entries.map((_, idx) => (idx === 0 ? '#2F3185' : idx === 1 ? '#1CBDB3' : idx === 2 ? '#FFB800' : '#6366F1'));
+
+      const ctx = document.getElementById('chartProvinsi').getContext('2d');
+      if (chartProvinsiInstance) chartProvinsiInstance.destroy();
+
+      chartProvinsiInstance = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: entries.map((e) => e[0]),
+          datasets: [{ label: 'Mahasantri', data: entries.map((e) => e[1]), backgroundColor: barColors, borderRadius: 6, barPercentage: 0.72 }],
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: { backgroundColor: '#1E293B', padding: 10, cornerRadius: 10, callbacks: { label: (it) => ` ${it.parsed.x} mahasantri` } },
+          },
+          scales: {
+            x: { beginAtZero: true, grid: { color: '#F1F5F9' }, ticks: { precision: 0, font: { family: 'Inter', size: 11 }, color: '#64748B' } },
+            y: { grid: { display: false }, ticks: { font: { family: 'Inter', size: 12, weight: '600' }, color: '#334155' } },
+          },
+        },
+      });
+    }
+
+    /**
+     * =========================================================================
+     * 8. RENDER DIREKTORI MAHASANTRI (VIEW 2)
+     * =========================================================================
+     */
+    function getProdiBadgeHTML(prodi) {
+      const styles = {
+        PAI: 'bg-amber-50 text-amber-800 border-amber-200',
+        IQT: 'bg-indigo-50 text-[#2F3185] border-indigo-200',
+        HES: 'bg-teal-50 text-teal-800 border-teal-200',
+        '-': 'bg-slate-100 text-slate-500 border-slate-200',
+      };
+      const cls = styles[prodi] || styles['-'];
+      return `<span class="inline-flex items-center px-2.5 py-0.5 rounded-lg text-[11px] font-bold border ${cls}">${escapeHTML(prodi === '-' ? 'Belum Ada' : prodi)}</span>`;
+    }
+
+    function getGenderBadgeHTML(jk) {
+      if (jk === 'Perempuan') {
+        return `<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#FDF2F8] text-[#DB2777] border border-pink-200">Putri</span>`;
+      }
+      return `<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#EEF0FA] text-[#2F3185] border border-indigo-200">Putra</span>`;
+    }
+
+    function getStatusBadgeHTML(status) {
+      if (status === 'DO') {
+        return `<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-red-50 text-red-700 border border-red-200"><span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>DO</span>`;
+      }
+      return `<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#E8F9F7] text-[#159991] border border-teal-200"><span class="w-1.5 h-1.5 rounded-full bg-[#1CBDB3]"></span>Aktif</span>`;
+    }
+
+    function renderDirectory() {
+      const filtered = getFilteredData();
+      const total = filtered.length;
+
+      document.getElementById('tabDirBadge').textContent = total;
+      document.getElementById('filteredTotalCount').textContent = total;
+      updateHeaderExportButton();
+
+      const filterPill = document.getElementById('headerActiveFilterPill');
+      if (hasActiveDirectoryFilters() && state.activeView !== 'prestasi') {
+        filterPill.classList.remove('hidden');
+        document.getElementById('headerFilterText').textContent = `${total} / ${ALL_DATA.length} terfilter`;
+      } else {
+        filterPill.classList.add('hidden');
+      }
+
+      const pageSize = state.pagination.pageSize === 'ALL' ? Math.max(total, 1) : Number(state.pagination.pageSize);
+      const totalPages = Math.max(1, Math.ceil(total / pageSize));
+      if (state.pagination.page > totalPages) state.pagination.page = totalPages;
+
+      const startIdx = (state.pagination.page - 1) * pageSize;
+      const endIdx = Math.min(startIdx + pageSize, total);
+      const pageItems = filtered.slice(startIdx, endIdx);
+
+      document.getElementById('showingRange').textContent = total === 0 ? '0' : `${startIdx + 1}–${endIdx}`;
+
+      const tbody = document.getElementById('tableBody');
+      const emptyState = document.getElementById('emptyState');
+      const paginationFooter = document.getElementById('paginationFooter');
+
+      if (total === 0) {
+        tbody.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        paginationFooter.classList.add('hidden');
+      } else {
+        emptyState.classList.add('hidden');
+        paginationFooter.classList.remove('hidden');
+
+        // Count achievements per student for subtle trophy indicator
+        const achCountMap = {};
+        PRESTASI_DATA.forEach((p) => { achCountMap[p.nimPondok] = (achCountMap[p.nimPondok] || 0) + 1; });
+
+        tbody.innerHTML = pageItems
+          .map((item, idx) => {
+            const achCount = achCountMap[item.nimPondok] || 0;
+            const achBadge = achCount > 0
+              ? `<span class="inline-flex items-center gap-0.5 ml-1.5 px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-800" title="${achCount} Prestasi UMS"><i data-lucide="trophy" class="w-2.5 h-2.5 text-[#D99B00]"></i>${achCount}</span>`
+              : '';
+            return `
+              <tr class="hover:bg-indigo-50/50 transition cursor-pointer group" data-record-id="${item.id}">
+                <td class="py-3.5 px-4 text-center text-slate-400 font-medium tabular-nums">${startIdx + idx + 1}</td>
+                <td class="py-3.5 px-4 whitespace-nowrap">
+                  <div class="font-mono font-bold text-[#2F3185] text-xs sm:text-[13px]">${escapeHTML(item.nimPondok)}</div>
+                  <div class="font-mono text-[11px] text-slate-400">${item.nimUms !== '-' ? escapeHTML(item.nimUms) : 'NIM UMS: -'}</div>
+                </td>
+                <td class="py-3.5 px-4">
+                  <div class="font-bold text-slate-900 group-hover:text-[#2F3185] transition flex items-center flex-wrap">
+                    <span>${escapeHTML(item.nama)}</span>${achBadge}
+                  </div>
+                  <div class="text-[11px] text-slate-500 truncate max-w-[230px] sm:max-w-[300px]" title="${escapeHTML(item.sekolah)}">${escapeHTML(item.sekolah)}</div>
+                </td>
+                <td class="py-3.5 px-4 text-center whitespace-nowrap">
+                  <span class="inline-flex items-center px-2 py-0.5 rounded-md text-xs font-bold bg-slate-100 text-slate-700 tabular-nums">${escapeHTML(item.angkatan)}</span>
+                </td>
+                <td class="py-3.5 px-4 text-center whitespace-nowrap">${getGenderBadgeHTML(item.jk)}</td>
+                <td class="py-3.5 px-4 text-center whitespace-nowrap">${getProdiBadgeHTML(item.prodi)}</td>
+                <td class="py-3.5 px-4 whitespace-nowrap">
+                  <div class="font-semibold text-slate-800">${escapeHTML(item.provinsi)}</div>
+                  <div class="text-[11px] text-slate-500">${escapeHTML(item.kabKota)}</div>
+                </td>
+                <td class="py-3.5 px-4 text-center whitespace-nowrap">${getStatusBadgeHTML(item.status)}</td>
+                <td class="py-3.5 px-4 text-right whitespace-nowrap">
+                  <button type="button" class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full text-xs font-semibold text-[#2F3185] bg-indigo-50/70 group-hover:bg-[#2F3185] group-hover:text-white transition cursor-pointer">
+                    <span>Detail</span><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                  </button>
+                </td>
+              </tr>
+            `;
+          })
+          .join('');
+
+        renderPaginationControls(totalPages);
+      }
+
+      updateSortIndicators();
+      lucide.createIcons();
+    }
+
+    function renderPaginationControls(totalPages) {
+      const current = state.pagination.page;
+      document.getElementById('pageInfoText').textContent = `Halaman ${current} dari ${totalPages}`;
+      const container = document.getElementById('paginationControls');
+      const buttons = [];
+
+      buttons.push(`<button type="button" data-page="${current - 1}" ${current === 1 ? 'disabled' : ''} class="px-3 py-1.5 rounded-full text-xs font-semibold border border-slate-200 bg-white hover:bg-slate-100 disabled:opacity-40 disabled:cursor-not-allowed transition cursor-pointer">&laquo; Prev</button>`);
+
+      const maxVisible = 5;
+      let startPage = Math.max(1, current - Math.floor(maxVisible / 2));
+      let endPage = Math.min(totalPages, startPage + maxVisible - 1);
+      if (endPage - startPage + 1 < maxVisible) startPage = Math.max(1, endPage - maxVisible + 1);
+
+      if (startPage > 1) {
+        buttons.push(pageBtnHTML(1, current));
+        if (startPage > 2) buttons.push(`<span class="px-1 text-slate-400 text-xs">...</span>`);
+      }
+      for (let p = startPage; p <= endPage; p++) buttons.push(pageBtnHTML(p, current));
+      if (endPage < totalPages) {
+        if (endPage < totalPages - 1) buttons.push(`<span class="px-1 text-slate-400 text-xs">...</span>`);
+        buttons.push(pageBtnHTML(totalPages, current));
+      }
+
+      buttons.push(`<button type="button" data-page="${current + 1}" ${current === totalPages ? 'disabled' : ''} class="px-3 py-1.5 rounded-full text-xs font-semibold border border-slate-200 bg-white hover:bg-slate-100 disabled:opacity-40 disabled:cursor-not-allowed transition cursor-pointer">Next &raquo;</button>`);
+      container.innerHTML = buttons.join('');
+    }
+
+    function pageBtnHTML(pageNum, current) {
+      const cls = pageNum === current
+        ? 'bg-[#2F3185] text-white border-[#2F3185] shadow-xs'
+        : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-100';
+      return `<button type="button" data-page="${pageNum}" class="min-w-[32px] px-2.5 py-1.5 rounded-full text-xs font-bold border transition cursor-pointer tabular-nums ${cls}">${pageNum}</button>`;
+    }
+
+    function updateSortIndicators() {
+      document.querySelectorAll('[data-sort-icon]').forEach((icon) => {
+        const active = icon.getAttribute('data-sort-icon') === state.sort.key;
+        icon.classList.toggle('text-[#2F3185]', active);
+        icon.classList.toggle('text-slate-400', !active);
+      });
+    }
+
+    /**
+     * =========================================================================
+     * 9. RENDER PRESTASI UMS (VIEW 3)
+     * =========================================================================
+     */
+    function getMedalVisual(peringkat) {
+      if (peringkat === 'Juara 1') {
+        return {
+          bg: 'bg-amber-50 border-amber-200 text-amber-800',
+          iconColor: 'text-[#FFB800]',
+          icon: 'trophy',
+          label: 'Juara 1 / Emas',
+        };
+      }
+      if (peringkat === 'Juara 2') {
+        return {
+          bg: 'bg-slate-100 border-slate-300 text-slate-700',
+          iconColor: 'text-slate-500',
+          icon: 'medal',
+          label: 'Juara 2 / Perak',
+        };
+      }
+      if (peringkat === 'Juara 3') {
+        return {
+          bg: 'bg-orange-50 border-orange-200 text-orange-800',
+          iconColor: 'text-orange-500',
+          icon: 'medal',
+          label: 'Juara 3 / Perunggu',
+        };
+      }
+      if (peringkat === 'Delegasi') {
+        return {
+          bg: 'bg-teal-50 border-teal-200 text-teal-800',
+          iconColor: 'text-[#1CBDB3]',
+          icon: 'globe',
+          label: 'Delegasi Resmi',
+        };
+      }
+      return {
+        bg: 'bg-indigo-50 border-indigo-200 text-[#2F3185]',
+        iconColor: 'text-[#2F3185]',
+        icon: 'award',
+        label: 'Penghargaan / Terbaik',
+      };
+    }
+
+    function getTingkatBadgeHTML(tingkat) {
+      const styles = {
+        Internasional: 'bg-purple-50 text-purple-700 border-purple-200',
+        Nasional: 'bg-amber-50 text-amber-800 border-amber-200',
+        Provinsi: 'bg-sky-50 text-sky-700 border-sky-200',
+        Universitas: 'bg-slate-100 text-slate-700 border-slate-200',
+      };
+      return `<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold border ${styles[tingkat] || styles.Universitas}">${escapeHTML(tingkat)}</span>`;
+    }
+
+    function renderPrestasi() {
+      const allEnriched = getEnrichedPrestasi();
+      const filtered = getFilteredPrestasi();
+
+      // Update Badges
+      document.getElementById('tabPrestasiBadge').textContent = PRESTASI_DATA.length;
+      document.getElementById('drawerPrestasiBadge').textContent = PRESTASI_DATA.length;
+      document.getElementById('prestasiFilteredCount').textContent = filtered.length;
+      updateHeaderExportButton();
+
+      // Compute KPIs from allEnriched (full overview) or filtered? Using allEnriched for stable KPIs, or filtered dynamically!
+      // Let's compute KPIs dynamically based on filtered so charts & KPIs react smoothly to filters
+      const total = filtered.length;
+      const akademik = filtered.filter((p) => p.kategori === 'Akademik').length;
+      const nonAkademik = filtered.filter((p) => p.kategori === 'Non-Akademik').length;
+      const intCount = filtered.filter((p) => p.tingkat === 'Internasional').length;
+      const nasCount = filtered.filter((p) => p.tingkat === 'Nasional').length;
+      const uniqueNims = new Set(filtered.map((p) => p.nimPondok));
+      const uniquePutra = new Set(filtered.filter((p) => p.jk === 'Laki-Laki').map((p) => p.nimPondok)).size;
+      const uniquePutri = new Set(filtered.filter((p) => p.jk === 'Perempuan').map((p) => p.nimPondok)).size;
+      const pct = (n) => (total > 0 ? ((n / total) * 100).toFixed(1) + '%' : '0%');
+
+      document.getElementById('kpiPrestasiTotal').textContent = total;
+      document.getElementById('kpiPrestasiAkademik').textContent = akademik;
+      document.getElementById('kpiPrestasiAkademikPct').textContent = `${pct(akademik)} dari total`;
+      document.getElementById('kpiPrestasiNonAkademik').textContent = nonAkademik;
+      document.getElementById('kpiPrestasiNonAkademikPct').textContent = `${pct(nonAkademik)} dari total`;
+      document.getElementById('kpiPrestasiIntNas').textContent = intCount + nasCount;
+      document.getElementById('kpiPrestasiIntNasDetail').textContent = `${intCount} Int'l • ${nasCount} Nasional`;
+      document.getElementById('kpiPrestasiUnique').textContent = uniqueNims.size;
+      document.getElementById('kpiPrestasiUniqueGender').textContent = `${uniquePutra} Putra • ${uniquePutri} Putri`;
+
+      // Render Charts
+      renderPrestasiCharts(filtered);
+
+      // Render Cards Grid
+      const grid = document.getElementById('prestasiGrid');
+      const empty = document.getElementById('prestasiEmptyState');
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        empty.classList.remove('hidden');
+      } else {
+        empty.classList.add('hidden');
+        grid.innerHTML = filtered
+          .map((item) => {
+            const medal = getMedalVisual(item.peringkat);
+            const catBadge =
+              item.kategori === 'Akademik'
+                ? `<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#2F3185] text-white">Akademik</span>`
+                : `<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#1CBDB3] text-white">Non-Akademik</span>`;
+
+            return `
+              <article class="bg-white rounded-3xl border border-slate-200/80 shadow-xs hover:shadow-md transition p-5 flex flex-col justify-between gap-4">
+                <div class="space-y-3">
+                  <!-- Top Row: Medal + Year + Tingkat -->
+                  <div class="flex items-center justify-between gap-2 flex-wrap">
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-extrabold border ${medal.bg}">
+                      <i data-lucide="${medal.icon}" class="w-3.5 h-3.5 ${medal.iconColor}"></i>
+                      <span>${escapeHTML(medal.label)}</span>
+                    </span>
+                    <div class="flex items-center gap-1.5">
+                      ${getTingkatBadgeHTML(item.tingkat)}
+                      <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 text-slate-600 tabular-nums">${escapeHTML(item.tahun)}</span>
+                    </div>
+                  </div>
+
+                  <!-- Title & Organizer -->
+                  <div>
+                    <h4 class="text-sm sm:text-[15px] font-extrabold text-slate-900 leading-snug">
+                      ${escapeHTML(item.judul)}
+                    </h4>
+                    <p class="text-xs text-slate-500 mt-1 flex items-center gap-1.5">
+                      <i data-lucide="building-2" class="w-3.5 h-3.5 text-slate-400 shrink-0"></i>
+                      <span class="truncate">${escapeHTML(item.penyelenggara)}</span>
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Bottom Row: Student Profile Link + Category/Gender Badges -->
+                <div class="pt-3 border-t border-slate-100 space-y-2.5">
+                  <button
+                    type="button"
+                    data-open-mahasantri="${item.mahasantriId}"
+                    class="w-full text-left group flex items-center justify-between gap-2 p-2 -mx-2 rounded-2xl hover:bg-indigo-50/70 transition cursor-pointer"
+                    title="Klik untuk membuka profil lengkap mahasantri"
+                  >
+                    <div class="min-w-0">
+                      <div class="text-xs sm:text-sm font-bold text-[#2F3185] group-hover:underline truncate">
+                        ${escapeHTML(item.nama)}
+                      </div>
+                      <div class="text-[11px] text-slate-500 font-mono truncate">
+                        ${escapeHTML(item.nimPondok)} • ${item.prodi !== '-' ? escapeHTML(item.prodi) : 'Angk. ' + escapeHTML(item.angkatan)}
+                      </div>
+                    </div>
+                    <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400 group-hover:text-[#2F3185] shrink-0"></i>
+                  </button>
+
+                  <div class="flex items-center justify-between gap-2 flex-wrap">
+                    ${catBadge}
+                    ${getGenderBadgeHTML(item.jk)}
+                  </div>
+                </div>
+              </article>
+            `;
+          })
+          .join('');
+      }
+
+      lucide.createIcons();
+    }
+
+    function renderPrestasiCharts(dataset) {
+      // 1. Doughnut: Akademik vs Non-Akademik
+      const akCount = dataset.filter((d) => d.kategori === 'Akademik').length;
+      const nonAkCount = dataset.filter((d) => d.kategori === 'Non-Akademik').length;
+      const total = dataset.length || 1;
+
+      const ctxCat = document.getElementById('chartPrestasiKategori').getContext('2d');
+      if (chartPrestasiKategoriInstance) chartPrestasiKategoriInstance.destroy();
+      chartPrestasiKategoriInstance = new Chart(ctxCat, {
+        type: 'doughnut',
+        data: {
+          labels: ['Akademik', 'Non-Akademik'],
+          datasets: [{ data: [akCount, nonAkCount], backgroundColor: ['#2F3185', '#1CBDB3'], borderColor: '#FFFFFF', borderWidth: 3, hoverOffset: 6 }],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          cutout: '64%',
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: '#1E293B',
+              padding: 10,
+              cornerRadius: 10,
+              callbacks: { label: (it) => ` ${it.label}: ${it.parsed} (${((it.parsed / total) * 100).toFixed(1)}%)` },
+            },
+          },
+        },
+      });
+
+      document.getElementById('prestasiKategoriLegend').innerHTML = `
+        <div class="flex items-center justify-between bg-slate-50 rounded-xl px-3 py-2 border border-slate-100">
+          <span class="flex items-center gap-1.5 font-semibold text-slate-700"><span class="w-2.5 h-2.5 rounded-full bg-[#2F3185]"></span>Akademik</span>
+          <span class="font-bold text-slate-900 tabular-nums">${akCount}</span>
+        </div>
+        <div class="flex items-center justify-between bg-slate-50 rounded-xl px-3 py-2 border border-slate-100">
+          <span class="flex items-center gap-1.5 font-semibold text-slate-700"><span class="w-2.5 h-2.5 rounded-full bg-[#1CBDB3]"></span>Non-Akad.</span>
+          <span class="font-bold text-slate-900 tabular-nums">${nonAkCount}</span>
+        </div>
+      `;
+
+      // 2. Bar: Tingkat Prestasi
+      const levels = ['Internasional', 'Nasional', 'Provinsi', 'Universitas'];
+      const levelCounts = levels.map((lv) => dataset.filter((d) => d.tingkat === lv).length);
+      const ctxTingkat = document.getElementById('chartPrestasiTingkat').getContext('2d');
+      if (chartPrestasiTingkatInstance) chartPrestasiTingkatInstance.destroy();
+      chartPrestasiTingkatInstance = new Chart(ctxTingkat, {
+        type: 'bar',
+        data: {
+          labels: ['Int\'l', 'Nasional', 'Provinsi', 'UMS'],
+          datasets: [{
+            label: 'Prestasi',
+            data: levelCounts,
+            backgroundColor: ['#7C3AED', '#FFB800', '#1CBDB3', '#2F3185'],
+            borderRadius: 8,
+            barPercentage: 0.58,
+          }],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false }, tooltip: { backgroundColor: '#1E293B', padding: 10, cornerRadius: 10 } },
+          scales: {
+            x: { grid: { display: false }, ticks: { font: { family: 'Inter', size: 11, weight: '600' }, color: '#475569' } },
+            y: { beginAtZero: true, grid: { color: '#F1F5F9' }, ticks: { precision: 0, font: { family: 'Inter', size: 11 }, color: '#64748B' } },
+          },
+        },
+      });
+
+      // 3. Bar: Tren per Tahun (2023-2026)
+      const years = ['2023', '2024', '2025', '2026'];
+      const akYear = years.map((y) => dataset.filter((d) => d.tahun === y && d.kategori === 'Akademik').length);
+      const nonAkYear = years.map((y) => dataset.filter((d) => d.tahun === y && d.kategori === 'Non-Akademik').length);
+      const ctxTahun = document.getElementById('chartPrestasiTahun').getContext('2d');
+      if (chartPrestasiTahunInstance) chartPrestasiTahunInstance.destroy();
+      chartPrestasiTahunInstance = new Chart(ctxTahun, {
+        type: 'bar',
+        data: {
+          labels: years,
+          datasets: [
+            { label: 'Akademik', data: akYear, backgroundColor: '#2F3185', borderRadius: 6, barPercentage: 0.55 },
+            { label: 'Non-Akademik', data: nonAkYear, backgroundColor: '#1CBDB3', borderRadius: 6, barPercentage: 0.55 },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: '#1E293B',
+              padding: 10,
+              cornerRadius: 10,
+              callbacks: { footer: (its) => `Total: ${its.reduce((a, b) => a + b.parsed.y, 0)} prestasi` },
+            },
+          },
+          scales: {
+            x: { stacked: true, grid: { display: false }, ticks: { font: { family: 'Inter', size: 11, weight: '600' }, color: '#475569' } },
+            y: { stacked: true, beginAtZero: true, grid: { color: '#F1F5F9' }, ticks: { precision: 0, font: { family: 'Inter', size: 11 }, color: '#64748B' } },
+          },
+        },
+      });
+    }
+
+    /**
+     * =========================================================================
+     * 10. MODAL DETAIL MAHASANTRI (WITH PRESTASI CROSS-INTEGRATION)
+     * =========================================================================
+     */
+    function openDetailModal(recordId) {
+      const item = ALL_DATA.find((d) => d.id === Number(recordId));
+      if (!item) return;
+      state.selectedRecord = item;
+
+      const banner = document.getElementById('modalHeaderBanner');
+      banner.className =
+        item.jk === 'Perempuan'
+          ? 'bg-gradient-to-r from-[#2F3185] to-[#BE185D] px-5 sm:px-6 py-5 text-white relative'
+          : 'bg-gradient-to-r from-[#2F3185] to-[#1C1E55] px-5 sm:px-6 py-5 text-white relative';
+
+      const initials = item.nama.split(' ').filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
+      document.getElementById('modalAvatar').textContent = initials || 'M';
+
+      const statusBadge = document.getElementById('modalStatusBadge');
+      statusBadge.textContent = item.status;
+      statusBadge.className =
+        item.status === 'DO'
+          ? 'px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-red-500 text-white'
+          : 'px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#1CBDB3] text-white';
+
+      document.getElementById('modalAngkatanBadge').textContent = `Angkatan ${item.angkatan}`;
+      document.getElementById('modalNama').textContent = item.nama;
+      document.getElementById('modalNimSubtitle').textContent = `${item.nimPondok} • ${item.provinsi}`;
+
+      const prodiFullMap = {
+        PAI: 'PAI (Pendidikan Agama Islam)',
+        IQT: "IQT (Ilmu Al-Qur'an & Tafsir)",
+        HES: 'HES (Hukum Ekonomi Syariah)',
+        '-': 'Belum Terdata (-)',
+      };
+
+      document.getElementById('detailNimPondok').textContent = item.nimPondok;
+      document.getElementById('detailNimUms').textContent = item.nimUms;
+      document.getElementById('detailProdi').textContent = prodiFullMap[item.prodi] || item.prodi;
+      document.getElementById('detailJK').textContent = item.jk;
+      document.getElementById('detailKabKota').textContent = item.kabKota;
+      document.getElementById('detailProvinsi').textContent = item.provinsi;
+      document.getElementById('detailSekolah').textContent = item.sekolah;
+      document.getElementById('detailPondok').textContent = item.pondok;
+
+      // Cross-Integration: Load achievements of this mahasantri
+      const studentAch = PRESTASI_DATA.filter((p) => p.nimPondok === item.nimPondok).sort((a, b) => Number(b.tahun) - Number(a.tahun));
+      document.getElementById('detailPrestasiCountBadge').textContent = `${studentAch.length} Prestasi`;
+      const achContainer = document.getElementById('detailPrestasiList');
+
+      if (studentAch.length === 0) {
+        achContainer.innerHTML = `<p class="text-xs text-amber-900/70 italic">Belum ada data prestasi tercatat pada simulasi saat ini.</p>`;
+      } else {
+        achContainer.innerHTML = studentAch
+          .map((p) => {
+            const medal = getMedalVisual(p.peringkat);
+            return `
+              <div class="bg-white rounded-xl p-3 border border-amber-200/80 shadow-2xs">
+                <div class="flex items-center justify-between gap-2 flex-wrap mb-1">
+                  <span class="inline-flex items-center gap-1 text-[11px] font-bold text-[#2F3185]">
+                    <i data-lucide="${medal.icon}" class="w-3.5 h-3.5 ${medal.iconColor}"></i>
+                    ${escapeHTML(p.peringkat)} • ${escapeHTML(p.tingkat)}
+                  </span>
+                  <span class="text-[10px] font-bold px-2 py-0.5 rounded-full ${p.kategori === 'Akademik' ? 'bg-indigo-50 text-[#2F3185]' : 'bg-teal-50 text-[#159991]'}">
+                    ${escapeHTML(p.kategori)} (${escapeHTML(p.tahun)})
+                  </span>
+                </div>
+                <p class="text-xs font-bold text-slate-900">${escapeHTML(p.judul)}</p>
+                <p class="text-[11px] text-slate-500 mt-0.5">${escapeHTML(p.penyelenggara)}</p>
+              </div>
+            `;
+          })
+          .join('');
+      }
+
+      document.getElementById('detailModalOverlay').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      lucide.createIcons();
+    }
+
+    function closeDetailModal() {
+      document.getElementById('detailModalOverlay').classList.add('hidden');
+      document.body.style.overflow = '';
+      state.selectedRecord = null;
+    }
+
+    /**
+     * =========================================================================
+     * 11. MODAL TAMBAH PRESTASI (DUMMY)
+     * =========================================================================
+     */
+    function openAddPrestasiModal() {
+      document.getElementById('formAddPrestasi').reset();
+      document.getElementById('addPrestasiModalOverlay').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      lucide.createIcons();
+    }
+
+    function closeAddPrestasiModal() {
+      document.getElementById('addPrestasiModalOverlay').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    /**
+     * =========================================================================
+     * 12. CSV EXPORTS (UTF-8 BOM)
+     * =========================================================================
+     */
+    function downloadCSV(filename, headers, rows) {
+      const escapeCSV = (val) => {
+        const str = String(val ?? '');
+        return str.includes('"') || str.includes(',') || str.includes('\n') ? `"${str.replace(/"/g, '""')}"` : str;
+      };
+      const csvContent = '\uFEFF' + [headers.map(escapeCSV).join(','), ...rows.map((r) => r.map(escapeCSV).join(','))].join('\r\n');
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    }
+
+    function exportDirectoryToCSV() {
+      const data = getFilteredData();
+      if (data.length === 0) return showToast('Tidak ada data mahasantri untuk diekspor.');
+      const headers = ['No', 'Status', 'Angkatan', 'NIM Pondok', 'NIM UMS', 'Prodi', 'Nama Lengkap', 'Jenis Kelamin', 'Kabupaten/Kota', 'Provinsi', 'Asal Sekolah', 'Asal Pondok Pesantren'];
+      const rows = data.map((d, i) => [i + 1, d.status, d.angkatan, d.nimPondok, d.nimUms, d.prodi, d.nama, d.jk, d.kabKota, d.provinsi, d.sekolah, d.pondok]);
+      const dateStr = new Date().toISOString().slice(0, 10);
+      downloadCSV(`Direktori_Mahasantri_Shabran_${data.length}data_${dateStr}.csv`, headers, rows);
+      showToast(`Berhasil mengekspor ${data.length} data direktori ke CSV.`);
+    }
+
+    function exportPrestasiToCSV() {
+      const data = getFilteredPrestasi();
+      if (data.length === 0) return showToast('Tidak ada data prestasi untuk diekspor.');
+      const headers = ['No', 'Tahun', 'NIM Pondok', 'Nama Mahasantri', 'JK', 'Prodi', 'Angkatan', 'Kategori', 'Peringkat', 'Tingkat', 'Kompetisi / Penghargaan', 'Penyelenggara'];
+      const rows = data.map((d, i) => [i + 1, d.tahun, d.nimPondok, d.nama, d.jk, d.prodi, d.angkatan, d.kategori, d.peringkat, d.tingkat, d.judul, d.penyelenggara]);
+      const dateStr = new Date().toISOString().slice(0, 10);
+      downloadCSV(`Prestasi_UMS_Shabran_${data.length}data_${dateStr}.csv`, headers, rows);
+      showToast(`Berhasil mengekspor ${data.length} data prestasi ke CSV.`);
+    }
+
+    function updateHeaderExportButton() {
+      const badge = document.getElementById('headerExportBadge');
+      const label = document.getElementById('headerExportLabel');
+      if (state.activeView === 'prestasi') {
+        label.textContent = 'Ekspor Prestasi';
+        badge.textContent = getFilteredPrestasi().length;
+      } else {
+        label.textContent = 'Ekspor CSV';
+        badge.textContent = getFilteredData().length;
+      }
+    }
+
+    /**
+     * =========================================================================
+     * 13. SPA NAVIGATION & SLIDE-OVER DRAWER
+     * =========================================================================
+     */
+    function openDrawer() {
+      const overlay = document.getElementById('drawerOverlay');
+      const panel = document.getElementById('drawerPanel');
+      overlay.classList.remove('hidden');
+      requestAnimationFrame(() => panel.classList.remove('-translate-x-full'));
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      const overlay = document.getElementById('drawerOverlay');
+      const panel = document.getElementById('drawerPanel');
+      panel.classList.add('-translate-x-full');
+      setTimeout(() => {
+        overlay.classList.add('hidden');
+        document.body.style.overflow = '';
+      }, 260);
+    }
+
+    function switchView(viewName) {
+      state.activeView = viewName;
+
+      // Toggle sections
+      document.getElementById('viewDashboard').classList.toggle('hidden', viewName !== 'dashboard');
+      document.getElementById('viewDirectory').classList.toggle('hidden', viewName !== 'directory');
+      document.getElementById('viewPrestasi').classList.toggle('hidden', viewName !== 'prestasi');
+
+      // Update Top Tabs
+      document.querySelectorAll('.nav-tab').forEach((btn) => {
+        const active = btn.getAttribute('data-nav') === viewName;
+        btn.classList.toggle('text-white', active);
+        btn.classList.toggle('text-indigo-200', !active);
+        btn.querySelector('.nav-indicator').classList.toggle('hidden', !active);
+      });
+
+      // Update Drawer Items
+      document.querySelectorAll('.drawer-item').forEach((btn) => {
+        const active = btn.getAttribute('data-nav') === viewName;
+        btn.className = 'drawer-item w-full flex items-center justify-between px-4 py-3 rounded-2xl text-sm font-semibold transition cursor-pointer ' +
+          (active ? 'bg-[#EEF0FA] text-[#2F3185]' : 'text-slate-700 hover:bg-slate-100');
+      });
+
+      updateHeaderExportButton();
+
+      if (viewName === 'dashboard') renderDashboard();
+      if (viewName === 'directory') renderDirectory();
+      if (viewName === 'prestasi') renderPrestasi();
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    /**
+     * =========================================================================
+     * 14. FILTER UI HELPERS & EVENT LISTENERS
+     * =========================================================================
+     */
+    function updateGenderPillsUI() {
+      document.querySelectorAll('.gender-pill').forEach((btn) => {
+        const val = btn.getAttribute('data-gender');
+        const active = val === state.filters.gender;
+        btn.className = 'gender-pill py-2 px-2 rounded-xl text-xs font-bold transition cursor-pointer ';
+        if (active) {
+          btn.className += val === 'ALL' ? 'bg-[#FFB800] text-[#1C1E55] shadow-xs' : val === 'Laki-Laki' ? 'bg-[#2F3185] text-white shadow-xs' : 'bg-[#EC4899] text-white shadow-xs';
+        } else {
+          btn.className += 'text-slate-600 hover:bg-white/60';
+        }
+      });
+    }
+
+    function updatePrestasiCatPillsUI() {
+      document.querySelectorAll('.pcat-pill').forEach((btn) => {
+        const val = btn.getAttribute('data-pcat');
+        const active = val === state.prestasiFilters.kategori;
+        btn.className = 'pcat-pill py-2 px-2 rounded-xl text-xs font-bold transition cursor-pointer ';
+        if (active) {
+          btn.className += val === 'ALL' ? 'bg-[#FFB800] text-[#1C1E55] shadow-xs' : val === 'Akademik' ? 'bg-[#2F3185] text-white shadow-xs' : 'bg-[#1CBDB3] text-white shadow-xs';
+        } else {
+          btn.className += 'text-slate-600 hover:bg-white/60';
+        }
+      });
+    }
+
+    function resetDirectoryFilters() {
+      state.filters = { search: '', gender: 'ALL', angkatan: 'ALL', prodi: 'ALL', status: 'ALL', provinsi: 'ALL' };
+      state.pagination.page = 1;
+      document.getElementById('searchInput').value = '';
+      document.getElementById('btnClearSearch').classList.add('hidden');
+      document.getElementById('filterAngkatan').value = 'ALL';
+      document.getElementById('filterProdi').value = 'ALL';
+      document.getElementById('filterStatus').value = 'ALL';
+      document.getElementById('filterProvinsi').value = 'ALL';
+      updateGenderPillsUI();
+      renderDirectory();
+      if (state.activeView === 'dashboard') renderDashboard();
+      showToast('Filter direktori direset.');
+    }
+
+    function resetPrestasiFilters() {
+      state.prestasiFilters = { search: '', kategori: 'ALL', tingkat: 'ALL', tahun: 'ALL', gender: 'ALL' };
+      document.getElementById('prestasiSearchInput').value = '';
+      document.getElementById('btnClearPrestasiSearch').classList.add('hidden');
+      document.getElementById('filterPrestasiTingkat').value = 'ALL';
+      document.getElementById('filterPrestasiTahun').value = 'ALL';
+      document.getElementById('filterPrestasiGender').value = 'ALL';
+      updatePrestasiCatPillsUI();
+      renderPrestasi();
+      showToast('Filter prestasi direset.');
+    }
+
+    function initEventListeners() {
+      // Navigation Tabs & Drawer Items
+      document.querySelectorAll('[data-nav]').forEach((el) => {
+        el.addEventListener('click', () => {
+          switchView(el.getAttribute('data-nav'));
+          if (!document.getElementById('drawerOverlay').classList.contains('hidden')) closeDrawer();
+        });
+      });
+
+      // Drawer Controls
+      document.getElementById('btnOpenDrawer').addEventListener('click', openDrawer);
+      document.getElementById('btnCloseDrawer').addEventListener('click', closeDrawer);
+      document.getElementById('drawerOverlay').addEventListener('click', (e) => {
+        if (e.target.id === 'drawerOverlay') closeDrawer();
+      });
+      document.getElementById('btnDrawerAddPrestasi').addEventListener('click', () => {
+        closeDrawer();
+        switchView('prestasi');
+        setTimeout(openAddPrestasiModal, 280);
+      });
+      document.getElementById('btnDrawerExportDir').addEventListener('click', () => { closeDrawer(); exportDirectoryToCSV(); });
+      document.getElementById('btnDrawerExportPrestasi').addEventListener('click', () => { closeDrawer(); exportPrestasiToCSV(); });
+
+      // Header Contextual Export
+      document.getElementById('btnHeaderExport').addEventListener('click', () => {
+        if (state.activeView === 'prestasi') exportPrestasiToCSV();
+        else exportDirectoryToCSV();
+      });
+
+      // Dashboard toggles
+      const btnStatsAll = document.getElementById('btnStatsAll');
+      const btnStatsFiltered = document.getElementById('btnStatsFiltered');
+      btnStatsAll.addEventListener('click', () => {
+        state.statsUseFiltered = false;
+        btnStatsAll.className = 'px-3.5 py-1.5 rounded-full text-xs font-semibold transition cursor-pointer bg-[#2F3185] text-white shadow-xs';
+        btnStatsFiltered.className = 'px-3.5 py-1.5 rounded-full text-xs font-semibold transition cursor-pointer text-slate-600 hover:text-slate-900';
+        renderDashboard();
+      });
+      btnStatsFiltered.addEventListener('click', () => {
+        state.statsUseFiltered = true;
+        btnStatsFiltered.className = 'px-3.5 py-1.5 rounded-full text-xs font-semibold transition cursor-pointer bg-[#2F3185] text-white shadow-xs';
+        btnStatsAll.className = 'px-3.5 py-1.5 rounded-full text-xs font-semibold transition cursor-pointer text-slate-600 hover:text-slate-900';
+        renderDashboard();
+      });
+
+      const btnProvTop12 = document.getElementById('btnProvTop12');
+      const btnProvAll = document.getElementById('btnProvAll');
+      btnProvTop12.addEventListener('click', () => {
+        state.provChartMode = 'top12';
+        btnProvTop12.className = 'px-3.5 py-1.5 rounded-full text-xs font-semibold transition cursor-pointer bg-[#2F3185] text-white shadow-xs';
+        btnProvAll.className = 'px-3.5 py-1.5 rounded-full text-xs font-semibold transition cursor-pointer text-slate-600 hover:text-slate-900';
+        renderDashboard();
+      });
+      btnProvAll.addEventListener('click', () => {
+        state.provChartMode = 'all';
+        btnProvAll.className = 'px-3.5 py-1.5 rounded-full text-xs font-semibold transition cursor-pointer bg-[#2F3185] text-white shadow-xs';
+        btnProvTop12.className = 'px-3.5 py-1.5 rounded-full text-xs font-semibold transition cursor-pointer text-slate-600 hover:text-slate-900';
+        renderDashboard();
+      });
+
+      // Directory Search & Filters
+      const searchInput = document.getElementById('searchInput');
+      const btnClearSearch = document.getElementById('btnClearSearch');
+      searchInput.addEventListener('input', (e) => {
+        state.filters.search = e.target.value;
+        state.pagination.page = 1;
+        btnClearSearch.classList.toggle('hidden', !e.target.value);
+        renderDirectory();
+      });
+      btnClearSearch.addEventListener('click', () => {
+        searchInput.value = '';
+        state.filters.search = '';
+        state.pagination.page = 1;
+        btnClearSearch.classList.add('hidden');
+        renderDirectory();
+      });
+      document.querySelectorAll('.gender-pill').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          state.filters.gender = btn.getAttribute('data-gender');
+          state.pagination.page = 1;
+          updateGenderPillsUI();
+          renderDirectory();
+        });
+      });
+      ['filterAngkatan', 'filterProdi', 'filterStatus', 'filterProvinsi'].forEach((id) => {
+        const keyMap = { filterAngkatan: 'angkatan', filterProdi: 'prodi', filterStatus: 'status', filterProvinsi: 'provinsi' };
+        document.getElementById(id).addEventListener('change', (e) => {
+          state.filters[keyMap[id]] = e.target.value;
+          state.pagination.page = 1;
+          renderDirectory();
+        });
+      });
+      document.getElementById('btnResetFilters').addEventListener('click', resetDirectoryFilters);
+      document.getElementById('btnEmptyReset').addEventListener('click', resetDirectoryFilters);
+      document.getElementById('pageSizeSelect').addEventListener('change', (e) => {
+        state.pagination.pageSize = e.target.value === 'ALL' ? 'ALL' : Number(e.target.value);
+        state.pagination.page = 1;
+        renderDirectory();
+      });
+      document.querySelectorAll('th[data-sort]').forEach((th) => {
+        th.addEventListener('click', () => {
+          const key = th.getAttribute('data-sort');
+          state.sort.dir = state.sort.key === key && state.sort.dir === 'asc' ? 'desc' : 'asc';
+          state.sort.key = key;
+          renderDirectory();
+        });
+      });
+      document.getElementById('tableBody').addEventListener('click', (e) => {
+        const row = e.target.closest('tr[data-record-id]');
+        if (row) openDetailModal(row.getAttribute('data-record-id'));
+      });
+      document.getElementById('paginationControls').addEventListener('click', (e) => {
+        const btn = e.target.closest('button[data-page]');
+        if (btn && !btn.disabled) {
+          state.pagination.page = Number(btn.getAttribute('data-page'));
+          renderDirectory();
+        }
+      });
+
+      // Prestasi Search, Filters & Actions
+      const pSearch = document.getElementById('prestasiSearchInput');
+      const btnClearPSearch = document.getElementById('btnClearPrestasiSearch');
+      pSearch.addEventListener('input', (e) => {
+        state.prestasiFilters.search = e.target.value;
+        btnClearPSearch.classList.toggle('hidden', !e.target.value);
+        renderPrestasi();
+      });
+      btnClearPSearch.addEventListener('click', () => {
+        pSearch.value = '';
+        state.prestasiFilters.search = '';
+        btnClearPSearch.classList.add('hidden');
+        renderPrestasi();
+      });
+      document.querySelectorAll('.pcat-pill').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          state.prestasiFilters.kategori = btn.getAttribute('data-pcat');
+          updatePrestasiCatPillsUI();
+          renderPrestasi();
+        });
+      });
+      document.getElementById('filterPrestasiTingkat').addEventListener('change', (e) => { state.prestasiFilters.tingkat = e.target.value; renderPrestasi(); });
+      document.getElementById('filterPrestasiTahun').addEventListener('change', (e) => { state.prestasiFilters.tahun = e.target.value; renderPrestasi(); });
+      document.getElementById('filterPrestasiGender').addEventListener('change', (e) => { state.prestasiFilters.gender = e.target.value; renderPrestasi(); });
+      document.getElementById('btnResetPrestasiFilters').addEventListener('click', resetPrestasiFilters);
+      document.getElementById('btnPrestasiEmptyReset').addEventListener('click', resetPrestasiFilters);
+      document.getElementById('btnExportPrestasiCSV').addEventListener('click', exportPrestasiToCSV);
+
+      // Click student name in Prestasi Card -> open Detail Modal
+      document.getElementById('prestasiGrid').addEventListener('click', (e) => {
+        const btn = e.target.closest('[data-open-mahasantri]');
+        if (btn) openDetailModal(btn.getAttribute('data-open-mahasantri'));
+      });
+
+      // Add Prestasi Modal & Submit
+      document.getElementById('btnOpenAddPrestasi').addEventListener('click', openAddPrestasiModal);
+      document.getElementById('btnCloseAddPrestasi').addEventListener('click', closeAddPrestasiModal);
+      document.getElementById('btnCancelAddPrestasi').addEventListener('click', closeAddPrestasiModal);
+      document.getElementById('addPrestasiModalOverlay').addEventListener('click', (e) => {
+        if (e.target.id === 'addPrestasiModalOverlay') closeAddPrestasiModal();
+      });
+
+      document.getElementById('formAddPrestasi').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const nimPondok = document.getElementById('inputPrestasiMahasantri').value;
+        const judul = document.getElementById('inputPrestasiJudul').value.trim();
+        const kategori = document.getElementById('inputPrestasiKategori').value;
+        const peringkat = document.getElementById('inputPrestasiPeringkat').value;
+        const tingkat = document.getElementById('inputPrestasiTingkat').value;
+        const tahun = document.getElementById('inputPrestasiTahun').value;
+        const penyelenggara = document.getElementById('inputPrestasiPenyelenggara').value.trim();
+
+        if (!nimPondok || !judul || !penyelenggara) return;
+
+        PRESTASI_DATA.unshift({
+          id: Date.now(),
+          nimPondok,
+          kategori,
+          peringkat,
+          tingkat,
+          tahun,
+          judul,
+          penyelenggara,
+        });
+
+        closeAddPrestasiModal();
+        renderPrestasi();
+        renderDirectory();
+        showToast('Prestasi dummy baru berhasil ditambahkan!');
+      });
+
+      // Detail Modal Close & Copy
+      document.getElementById('btnCloseModal').addEventListener('click', closeDetailModal);
+      document.getElementById('btnCloseModalFooter').addEventListener('click', closeDetailModal);
+      document.getElementById('detailModalOverlay').addEventListener('click', (e) => {
+        if (e.target.id === 'detailModalOverlay') closeDetailModal();
+      });
+      document.getElementById('btnCopyDetail').addEventListener('click', () => {
+        const r = state.selectedRecord;
+        if (!r) return;
+        const ach = PRESTASI_DATA.filter((p) => p.nimPondok === r.nimPondok);
+        const achLines = ach.length > 0
+          ? '\nPrestasi UMS   :\n' + ach.map((p, i) => `  ${i + 1}. [${p.tahun}] ${p.peringkat} ${p.judul} (${p.tingkat})`).join('\n')
+          : '\nPrestasi UMS   : -';
+        copyTextToClipboard(
+          `Nama Lengkap   : ${r.nama}\nStatus         : ${r.status}\nAngkatan       : ${r.angkatan}\nNIM Pondok     : ${r.nimPondok}\nNIM UMS        : ${r.nimUms}\nProgram Studi  : ${r.prodi}\nJenis Kelamin  : ${r.jk}\nKabupaten/Kota : ${r.kabKota}\nProvinsi       : ${r.provinsi}\nAsal Sekolah   : ${r.sekolah}\nAsal Pondok    : ${r.pondok}${achLines}`
+        );
+      });
+
+      // Global Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          if (!document.getElementById('detailModalOverlay').classList.contains('hidden')) closeDetailModal();
+          if (!document.getElementById('addPrestasiModalOverlay').classList.contains('hidden')) closeAddPrestasiModal();
+          if (!document.getElementById('drawerOverlay').classList.contains('hidden')) closeDrawer();
+        }
+      });
+    }
+
+    // Boot App
+    window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('footerYear').textContent = new Date().getFullYear();
+      updateLiveClockWIB();
+      setInterval(updateLiveClockWIB, 1000);
+
+      populateProvinsiDropdown();
+      populateMahasantriSelectForPrestasi();
+      initEventListeners();
+
+      renderDirectory();
+      renderPrestasi();
+      renderDashboard();
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
